@@ -335,7 +335,7 @@
               <MiscControls>--cpp11</MiscControls>
               <Define>STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\user;.\user\function;.\lib\system\inc;.\lib\hardware\inc;.\lib\core</IncludePath>
+              <IncludePath>.\user;.\user\function;.\lib\system\inc;.\lib\Common\inc;.\lib\hardware\inc;.\lib\core</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -640,61 +640,6 @@
               </FileOption>
             </File>
             <File>
-              <FileName>std.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\src\std.cpp</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>1</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
               <FileName>delay.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\lib\system\src\delay.cpp</FilePath>
@@ -748,6 +693,11 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+            <File>
+              <FileName>task.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\system\src\task.cpp</FilePath>
             </File>
             <File>
               <FileName>nvic.cpp</FileName>
@@ -860,9 +810,14 @@
               </FileOption>
             </File>
             <File>
-              <FileName>task.cpp</FileName>
+              <FileName>exti.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\system\src\task.cpp</FilePath>
+              <FilePath>.\lib\system\src\exti.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>dma.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\system\src\dma.cpp</FilePath>
             </File>
             <File>
               <FileName>adc.cpp</FileName>
@@ -875,14 +830,9 @@
               <FilePath>.\lib\system\src\dac.cpp</FilePath>
             </File>
             <File>
-              <FileName>dma.cpp</FileName>
+              <FileName>pwr.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\system\src\dma.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>exti.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\src\exti.cpp</FilePath>
+              <FilePath>.\lib\system\src\pwr.cpp</FilePath>
             </File>
             <File>
               <FileName>flash.cpp</FileName>
@@ -895,29 +845,19 @@
               <FilePath>.\lib\system\src\map.cpp</FilePath>
             </File>
             <File>
+              <FileName>tim.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\system\src\tim.cpp</FilePath>
+            </File>
+            <File>
               <FileName>i2c.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\lib\system\src\i2c.cpp</FilePath>
             </File>
             <File>
-              <FileName>pwr.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\src\pwr.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>rtc.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\src\rtc.cpp</FilePath>
-            </File>
-            <File>
               <FileName>spi.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\lib\system\src\spi.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>tim.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\src\tim.cpp</FilePath>
             </File>
             <File>
               <FileName>usart.cpp</FileName>
@@ -930,6 +870,11 @@
               <FilePath>.\lib\system\src\wdg.cpp</FilePath>
             </File>
             <File>
+              <FileName>rtc.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\system\src\rtc.cpp</FilePath>
+            </File>
+            <File>
               <FileName>crc.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\lib\system\src\crc.cpp</FilePath>
@@ -937,12 +882,67 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>hardware</GroupName>
+          <GroupName>Common</GroupName>
           <Files>
+            <File>
+              <FileName>std.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\Common\src\std.cpp</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define></Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
             <File>
               <FileName>font.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\hardware\src\font.cpp</FilePath>
+              <FilePath>.\lib\Common\src\font.cpp</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -994,6 +994,121 @@
                 </FileArmAds>
               </FileOption>
             </File>
+            <File>
+              <FileName>des.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\Common\src\des.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>2</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define></Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>transCode.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\Common\src\transCode.cpp</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define></Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>hardware</GroupName>
+          <Files>
             <File>
               <FileName>DS18B20.cpp</FileName>
               <FileType>8</FileType>
@@ -1325,61 +1440,6 @@
               </FileOption>
             </File>
             <File>
-              <FileName>des.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\lib\hardware\src\des.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>2</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
               <FileName>RFID.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\lib\hardware\src\RFID.cpp</FilePath>
@@ -1435,9 +1495,9 @@
               </FileOption>
             </File>
             <File>
-              <FileName>LCD12864.cpp</FileName>
+              <FileName>ultrasonic.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\hardware\src\LCD12864.cpp</FilePath>
+              <FilePath>.\lib\hardware\src\ultrasonic.cpp</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -1490,9 +1550,9 @@
               </FileOption>
             </File>
             <File>
-              <FileName>ultrasonic.cpp</FileName>
+              <FileName>fontRom.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\hardware\src\ultrasonic.cpp</FilePath>
+              <FilePath>.\lib\hardware\src\fontRom.cpp</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
