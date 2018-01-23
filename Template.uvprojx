@@ -460,9 +460,9 @@
               <FilePath>.\user\function\function.cpp</FilePath>
             </File>
             <File>
-              <FileName>FCT.cpp</FileName>
+              <FileName>me.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\user\function\FCT.cpp</FilePath>
+              <FilePath>.\user\function\me.cpp</FilePath>
             </File>
             <File>
               <FileName>Ans.cpp</FileName>
@@ -523,6 +523,11 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+            <File>
+              <FileName>FCT.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\user\function\FCT.cpp</FilePath>
             </File>
           </Files>
         </Group>
