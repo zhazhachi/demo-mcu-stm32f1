@@ -1,3 +1,4 @@
 [submodule "lib"]
 	path = lib
 	url = git@gitee.com:rise0chen/lib-mcu-stm32f1.git
+	branch = master

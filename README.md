@@ -22,7 +22,7 @@ B15 |SPI2_MOSI   |复用推挽 |SPI2
 
 ## 使用步骤
 ``` bash
-git clone git@gitee.com:rise0chen/demo-mcu-stm32f1.git
+git clone -b master git@gitee.com:rise0chen/demo-mcu-stm32f1.git
 cd ./demo-mcu-stm32f1
 git submodule update --init --recursive
 ```
