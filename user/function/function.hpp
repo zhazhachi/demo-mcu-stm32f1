@@ -3,17 +3,19 @@
 #include "sys.hpp"
 #include "adc.hpp"
 //function
-#include "FCT.hpp"
-#include "Ans.hpp"
+#include "me.hpp"
+#include "task.hpp"
 #include "UI.hpp"
+#include "Ans.hpp"
+#include "FCT.hpp"
 
 
 
 //GPIO
 
 //全局变量
-extern usart &zigbee;
-extern usart &wifi;
 
+//用户函数
+void myTest();
 
 #endif //__FUNCTION_H

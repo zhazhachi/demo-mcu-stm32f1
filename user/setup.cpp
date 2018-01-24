@@ -32,16 +32,26 @@ void Other_Setup(){
 	map::JTAG(1);
 }
 void COM_Setup(){
-	zigbee.Config(9600,0x7E,0x7D);
-	wifi.Config(115200,0x7E,0x7D);
+	usart1.Config(9600,0x00,0x0A);
 	//i2c2.Config();
 	//spi2.Config();
 }
 void setup(){
+	flash::Read(FLASH_START_ADDR, &me, sizeof(me));//读取设备信息
+	if(me.status[0]!=0x67){//设备初始化
+		u8 ID_def[8]={0x11,0x01,0x00,0x00,0x00,0x00,0x00,0x01};//设备ID
+		std::memcpy(me.ID, ID_def, 8);
+		me.status[0]=0x67;
+		flash::Write(FLASH_START_ADDR, &me, sizeof(me));
+	}
+	task::init();
+	task::add(0x01,myTest,0,0xff, 5,2);//立即开始，永不停止，5秒1次，执行2次
+
 	//IWDG_Config(6,1250);
 }
 void loop(){
 	//IWDG_Feed();
-	pwr::Sleep(1);//休眠 且不返回main函数
+	task::run();
 	
+	//pwr::Sleep(0);//休眠
 }

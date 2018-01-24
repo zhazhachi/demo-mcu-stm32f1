@@ -9,24 +9,19 @@ void SVC_Handler(void){}
 void DebugMon_Handler(void){}
 void PendSV_Handler(void){}
 
+
 void USART1_Do(void){
-	if(usart1.RX_BUF[0]=='A' && usart1.RX_BUF[1]=='T'){
-		usart1.printf("OK\r\n");
-	}
+	usart1.Send(usart1.RX_BUF, usart1.RX_Len);
 }
 void USART2_Do(void){
-	usart3.Send(usart2.RX_BUF,usart2.RX_Len);
 }
 void USART3_Do(void){
-	usart2.Send(usart3.RX_BUF,usart3.RX_Len);
 }
-void SPI1_Do(void){
 
+void SPI1_Do(void){
 }
 void SPI2_Do(void){
-
 }
-
 #if I2C_DMA
 void I2C_do(void){}
 #endif

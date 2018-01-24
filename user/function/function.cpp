@@ -3,6 +3,8 @@
 //GPIO
 
 //全局变量
-usart &zigbee=usart2;
-usart &wifi=usart3;
 
+//用户函数
+void myTest(){
+	usart1.printf("hello:%d\r\n",RunTime);
+}
