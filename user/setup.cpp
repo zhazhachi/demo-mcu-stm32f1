@@ -26,26 +26,31 @@ void GPIO_Setup(){
 		GPIOD->CRH=0;
 		RCC->APB2ENR &= ~0x1fc;
 	}
-	
+	K1.Config(P_DIN);//下拉输入
+	K1.ExConfig(RTI);//上升沿中断
+	K2.Config(P_DIN);//下拉输入
+	K2.ExConfig(RTI);//上升沿中断
+	O1.Config(P_PPO);//推挽输出
+	*O1.O=1;//灭灯
+	O2.Config(P_PPO);//推挽输出
+	*O2.O=1;//灭灯
 }
 void Other_Setup(){
 	map::JTAG(1);
 }
 void COM_Setup(){
-	usart1.Config(9600,0x00,0x0A);
+	usart1.Config(9600,0xab,0xcd);
 	//i2c2.Config();
 	//spi2.Config();
 }
 void setup(){
-	flash::Read(FLASH_START_ADDR, &me, sizeof(me));//读取设备信息
-	if(me.status[0]!=0x67){//设备初始化
-		u8 ID_def[8]={0x11,0x01,0x00,0x00,0x00,0x00,0x00,0x01};//设备ID
-		std::memcpy(me.ID, ID_def, 8);
-		me.status[0]=0x67;
-		flash::Write(FLASH_START_ADDR, &me, sizeof(me));
-	}
+	ultrasonic::TRIG=TRIG;
+	ultrasonic::ECHO=ECHO;
+	ultrasonic::Init();
+	myArmInit();
+	
 	task::init();
-	task::add(0x01,myTest,0,0xff, 5,2);//立即开始，永不停止，5秒1次，执行2次
+	task::add(0x01,myMeasure,0,0xff, 1,0);//立即开始，永不停止，1秒1次，执行无限次
 
 	//IWDG_Config(6,1250);
 }
