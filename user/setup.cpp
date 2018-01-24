@@ -32,26 +32,25 @@ void Other_Setup(){
 	map::JTAG(1);
 }
 void COM_Setup(){
-	usart1.Config(9600,0x00,0x0A);
+	usart2.Config(9600,0x00,0x0D);
 	//i2c2.Config();
 	//spi2.Config();
 }
 void setup(){
-	flash::Read(FLASH_START_ADDR, &me, sizeof(me));//读取设备信息
-	if(me.status[0]!=0x67){//设备初始化
-		u8 ID_def[8]={0x11,0x01,0x00,0x00,0x00,0x00,0x00,0x01};//设备ID
-		std::memcpy(me.ID, ID_def, 8);
-		me.status[0]=0x67;
-		flash::Write(FLASH_START_ADDR, &me, sizeof(me));
-	}
-	task::init();
-	task::add(0x01,myTest,0,0xff, 5,2);//立即开始，永不停止，5秒1次，执行2次
+	rcc::Cmd(2, APB2_TIM1,ENABLE);//使能定时器的时钟
+	gpio(PA,8).Config(P_PPAF,P_50MHz);//引脚复用
+	gpio(PA,9).Config(P_PPAF,P_50MHz);
+	gpio(PB,13).Config(P_PPAF,P_50MHz);
+	gpio(PB,14).Config(P_PPAF,P_50MHz);
+	tim1.BaseConfig(1,3600,1);//设置定时器周期
+	tim1.OCConfig(1,0,14);//输出SPWM波形并设置死区时间
+	tim1.OCConfig(2,0,14);
+	tim1.Cmd(ENABLE);//使能定时器
 
 	//IWDG_Config(6,1250);
 }
 void loop(){
 	//IWDG_Feed();
-	task::run();
 	
 	//pwr::Sleep(0);//休眠
 }
