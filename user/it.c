@@ -9,11 +9,70 @@ void SVC_Handler(void){}
 void DebugMon_Handler(void){}
 void PendSV_Handler(void){}
 
+void EXTI0_IRQHandler(void){
+	delay_ms(10);
+	if(*K3.I==1){
+		EXTI->PR=1<<0;
+		
+		displayLed(LED1,0);//LED亮
+		ReadCard();
+		if(std::memcmp(CardID,CardSub,4)==0 || std::memcmp(CardID,CardAll,4)==0){
+			delay_ms(1000);
+			if(*K3.I==1){//设卡
+				displayLed(LED1,-1,4,1000);//4次闪烁 8s
+				
+				ReadCard();
+				setUser(CardID);
+			}else{
+				openLock();//管理员开锁
+			}
+		}else if(isUser(CardID) ){
+			openLock();
+		}
+		displayLed(LED1,1);//LED灭
+	}
+}
+void EXTI9_5_IRQHandler(void){
+	delay_ms(10);
+	if(*K2.I==1){
+		EXTI->PR=1<<6;
+		
+		ReadCard();
+		if(std::memcmp(CardID,CardSub,4)==0 || std::memcmp(CardID,CardAll,4)==0){
+			delay_ms(1000);
+			if(*K2.I==1){//配网+微信发现
+				*CH_PD.O=1;//WIFI上电
+				displayLed(LED0,-1,2,1000);//2次闪烁 4s
+				usart2.printf("AT+LINK\r\n");
+			}else{
+				openLock();//管理员开锁
+			}
+		}else{
+			*CH_PD.O=1;//WIFI上电
+		}
+	}
+}
 
 void USART1_Do(void){
-	usart1.Send(usart1.RX_BUF, usart1.RX_Len);
 }
 void USART2_Do(void){
+	if(usart2.RX_BUF[0]=='T' && usart2.RX_BUF[1]=='A' && usart2.RX_BUF[2]=='+'){
+		if(usart2.RX_BUF[3]=='o' && usart2.RX_BUF[4]=='p' && usart2.RX_BUF[5]=='e' && usart2.RX_BUF[6]=='n'){//开锁
+			openLock();
+			*CH_PD.O=0;//WIFI断电
+			displayLed(LED0,1);//LED灭
+		}else if(usart2.RX_BUF[3]=='o' && usart2.RX_BUF[4]=='n' && usart2.RX_BUF[5]=='\n'){//设备上线
+			displayLed(LED0,0);//LED亮
+		}else if(usart2.RX_BUF[3]=='o' && usart2.RX_BUF[4]=='f' && usart2.RX_BUF[5]=='f'){//设备关机
+			*CH_PD.O=0;//WIFI断电
+			displayLed(LED0,1);//LED灭
+		}else if(usart2.RX_BUF[3]=='f' && usart2.RX_BUF[4]=='i' && usart2.RX_BUF[5]=='n' && usart2.RX_BUF[6]=='d'){//进入微信发现
+			displayLed(LED0,-1,2,500);//2次闪烁 2s
+		}/*else if(usart2.RX_BUF[3]=='s' && usart2.RX_BUF[4]=='c' && usart2.RX_BUF[5]=='o' && usart2.RX_BUF[6]=='k'){//配网成功
+			*CH_PD.O=0;//WIFI断电
+			displayLed(LED0,1);//LED灭
+		}*/
+	}
 }
 void USART3_Do(void){
 }

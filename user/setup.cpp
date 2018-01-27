@@ -26,15 +26,38 @@ void GPIO_Setup(){
 		GPIOD->CRH=0;
 		RCC->APB2ENR &= ~0x1fc;
 	}
+	V_Ctrl.Config(P_PPO);
+	*V_Ctrl.O=0;//5V升压电路断电
+	Lock_Ctrl.Config(P_PPO);
+	*Lock_Ctrl.O=0;//电磁铁断电
+	LOCK_FB.Config(P_FIN);
+	YK_JYM.Config(P_PPO);
+	*YK_JYM.O=0;//继电器关断
+	//PWM.Config(P_PPAF);
 	
+	RFPOWER_CTL.Config(P_PPO);
+	*RFPOWER_CTL.O=1;//RFID读卡器断电
+	WIFI_RST.Config(P_PPO);
+	*WIFI_RST.O=1;//WIFI禁用重启
+	CH_PD.Config(P_PPO);
+	*CH_PD.O=0;//WIFI断电
+	K2.Config(P_DIN);
+	K2.ExConfig(RTI);
+	K3.Config(P_DIN);
+	K3.ExConfig(RTI);
+	LED0.Config(P_PPO);
+	*LED0.O=1;//LED灭
+	LED1.Config(P_PPO);
+	*LED1.O=1;//LED灭
+	BAT_AD.Config(P_AIN);
 }
 void Other_Setup(){
 	map::JTAG(1);
 }
 void COM_Setup(){
-	usart1.Config(9600,0x00,0x0A);
-	//i2c2.Config();
-	//spi2.Config();
+	usart2.Config(115200,0x00,0x0A);
+	i2c2.Config();
+	spi2.Config();
 }
 void setup(){
 	flash::Read(FLASH_START_ADDR, &me, sizeof(me));//读取设备信息
@@ -44,14 +67,17 @@ void setup(){
 		me.status[0]=0x67;
 		flash::Write(FLASH_START_ADDR, &me, sizeof(me));
 	}
-	task::init();
-	task::add(0x01,myTest,0,0xff, 5,2);//立即开始，永不停止，5秒1次，执行2次
-
-	//IWDG_Config(6,1250);
+	RFID::com = spi2;
+	RFID::RST=RF_RST;
+	RFID::CS=SPI2_CS;
+	RFID::Init();
+	//pwm_config();
+	*CH_PD.O=1;//WIFI上电
+	adc1.Init();
+	if(getBat10()<31){
+		//低电量
+	}
 }
 void loop(){
-	//IWDG_Feed();
-	task::run();
-	
-	//pwr::Sleep(0);//休眠
+	pwr::Sleep(1);//休眠,且不返回main函数
 }
