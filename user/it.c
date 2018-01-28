@@ -9,9 +9,64 @@ void SVC_Handler(void){}
 void DebugMon_Handler(void){}
 void PendSV_Handler(void){}
 
+void TIM3_IRQHandler(void){
+	if(TIM3->SR & 0X0001){
+		TIM3->SR &= ~1;//清除中断
+		usart1.printf("%d\n", adc1.Get(0,2));
+	}
+}
 
 void USART1_Do(void){
-	usart1.Send(usart1.RX_BUF, usart1.RX_Len);
+	u16 Prescaler;
+	u32 rate_set;
+	u32 rate;
+	
+	if(usart1.RX_BUF[0]=='A' && usart1.RX_BUF[1]=='T'){
+		switch(usart1.RX_BUF[2]){
+			case '+':
+				switch(usart1.RX_BUF[3]){
+					case 'e'://结束
+						//if(USART1_RX_BUF[4]=='n'&&USART1_RX_BUF[5]=='d')
+						tim3.Cmd(DISABLE);
+						usart1.printf("ok\n");
+					break;
+					case 'm'://峰值
+						//if(USART1_RX_BUF[4]=='a'&&USART1_RX_BUF[5]=='x')
+						usart1.printf("max:ok\n");
+					break;
+					case 'r'://采样频率
+						Prescaler=1;
+						//if(USART1_RX_BUF[4]=='a'&&USART1_RX_BUF[5]=='t'&&USART1_RX_BUF[6]=='e')
+						sscanf(usart1.RX_BUF, "AT+rate=%d\r\n",&rate);
+						rate=72*rate;
+						rate_set=rate;
+						while(rate_set>0xffff){
+							Prescaler++;
+							rate_set=rate/Prescaler;
+						}
+						tim3.BaseConfig(Prescaler, rate_set, 1);
+						usart1.printf("ARR:%d\n",rate_set);
+					break;
+					case 's'://开始
+						//if(USART1_RX_BUF[4]=='t'&&USART1_RX_BUF[5]=='a'&&USART1_RX_BUF[6]=='r'&&USART1_RX_BUF[7]=='t')
+						tim3.Cmd(ENABLE);
+						usart1.printf("ok\n");
+					break;
+					default:
+						usart1.printf("error\n");
+					break;
+				}
+			break;
+			case '\r':
+				usart1.printf("ok\n");
+			break;
+			default:
+				usart1.printf("error\n");
+			break;
+		}
+	}else{
+		usart1.printf("%s",usart1.RX_BUF);
+	}
 }
 void USART2_Do(void){
 }

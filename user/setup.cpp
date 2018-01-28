@@ -26,13 +26,13 @@ void GPIO_Setup(){
 		GPIOD->CRH=0;
 		RCC->APB2ENR &= ~0x1fc;
 	}
-	
+	gpio(PA,0).Config(P_AIN);
 }
 void Other_Setup(){
 	map::JTAG(1);
 }
 void COM_Setup(){
-	usart1.Config(9600,0x00,0x0A);
+	usart1.Config(1500000,0x00,0x0A);
 	//i2c2.Config();
 	//spi2.Config();
 }
@@ -44,14 +44,12 @@ void setup(){
 		me.status[0]=0x67;
 		flash::Write(FLASH_START_ADDR, &me, sizeof(me));
 	}
-	task::init();
-	task::add(0x01,myTest,0,0xff, 5,2);//立即开始，永不停止，5秒1次，执行2次
-
-	//IWDG_Config(6,1250);
+	
+	adc1.Init();
+	rcc::Cmd(1, APB1_TIM3, ENABLE);
+	tim3.BaseConfig(7200, 10000, 1);
+	tim3.Cmd(DISABLE);
 }
 void loop(){
-	//IWDG_Feed();
-	task::run();
-	
-	//pwr::Sleep(0);//休眠
+	pwr::Sleep(1);//休眠
 }
