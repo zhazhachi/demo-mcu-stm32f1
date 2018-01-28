@@ -26,13 +26,30 @@ void GPIO_Setup(){
 		GPIOD->CRH=0;
 		RCC->APB2ENR &= ~0x1fc;
 	}
-	
+	WIFI_RST.Config(P_PPO);
+	*WIFI_RST.O=1;//WIFI禁用重启
+	CH_PD.Config(P_PPO);
+	*CH_PD.O=0;//WIFI断电
+	K1.Config(P_DIN);
+	K1.ExConfig(RTI);
+	K2.Config(P_DIN);
+	K2.ExConfig(RTI);
+	K3.Config(P_DIN);
+	K3.ExConfig(RTI);
+	O1.Config(P_PPO);
+	*O1.O=1;
+	O2.Config(P_PPO);
+	*O2.O=1;
+	O3.Config(P_PPO);
+	*O3.O=1;
+	O4.Config(P_PPO);
+	*O4.O=1;
 }
 void Other_Setup(){
 	map::JTAG(1);
 }
 void COM_Setup(){
-	usart1.Config(9600,0x00,0x0A);
+	usart2.Config(115200,0x00,0x0A);
 	//i2c2.Config();
 	//spi2.Config();
 }
@@ -44,14 +61,8 @@ void setup(){
 		me.status[0]=0x67;
 		flash::Write(FLASH_START_ADDR, &me, sizeof(me));
 	}
-	task::init();
-	task::add(0x01,myTest,0,0xff, 5,2);//立即开始，永不停止，5秒1次，执行2次
-
-	//IWDG_Config(6,1250);
+	*CH_PD.O=1;//WIFI上电
 }
 void loop(){
-	//IWDG_Feed();
-	task::run();
-	
-	//pwr::Sleep(0);//休眠
+	pwr::Sleep(0);//休眠
 }
