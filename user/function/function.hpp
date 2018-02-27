@@ -1,7 +1,8 @@
 #ifndef __FUNCTION_H
 #define __FUNCTION_H
 #include "sys.hpp"
-#include "adc.hpp"
+#include "flash.hpp"
+#include "usart.hpp"
 //function
 #include "me.hpp"
 #include "task.hpp"
