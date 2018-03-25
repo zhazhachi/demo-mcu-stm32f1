@@ -62,6 +62,68 @@ void myArmRun(){
 	delay_ms(3000);
 	TIM2->CCR1 = 15; //1号舵机
 }
+void startCharge(){
+	u32 distance0,distance1;
+	
+	*O1.O=0;//LED1亮
+	*O2.O=1;//LED2灭
+	/* 机械臂向上抬起 */
+	TIM2->CCR1 = 10; //1号舵机
+	TIM2->CCR2 = 6; //2号舵机
+	TIM3->CCR1 = 15; //3号舵机
+	TIM3->CCR2 = 5; //4号舵机
+	TIM3->CCR3 = 25; //5号舵机
+	TIM3->CCR4 = 5; //6号舵机
+	do{//等待车辆停止运动
+		delay_ms(6000);//6s
+		ultrasonic::Ranging();
+		distance0=ultrasonic::distance;
+		if(distance0>130 && distance0<145){
+			*O1.O=1;//LED1灭
+			*O2.O=0;//LED2亮
+		}
+		delay_ms(4000);//4s
+		ultrasonic::Ranging();
+		distance1=ultrasonic::distance;
+		if(distance1>130 && distance1<145){
+			*O1.O=1;//LED1灭
+			*O2.O=0;//LED2亮
+		}
+	}while((s32)(distance0-distance1)>10 || (s32)(distance0-distance1)<-10 || *O2.O!=0);
+	*O1.O=1;//LED1灭
+	*O2.O=1;//LED2灭
+	myArmRun();//机械臂插入充电口
+}
+void finishCharge(){
+	u32 distance0;
+	
+	//*O1.O=0;//LED1亮
+	//*O2.O=1;//LED2灭
+	/* 机械臂向上抬起 */
+	TIM2->CCR1 = 10; //1号舵机
+	delay_ms(1500);
+	TIM2->CCR2 = 6; //2号舵机
+	TIM3->CCR1 = 15; //3号舵机
+	TIM3->CCR2 = 5; //4号舵机
+	TIM3->CCR3 = 25; //5号舵机
+	TIM3->CCR4 = 5; //6号舵机
+	//*O1.O=0;//LED1亮
+	//*O2.O=0;//LED2亮
+	do{//等待车辆到0.5米之外
+		delay_ms(5000);//5s
+		ultrasonic::Ranging();
+		distance0=ultrasonic::distance;
+	}while(distance0<500);
+	//*O1.O=1;//LED1灭
+	//*O2.O=1;//LED2灭
+	/* 机械臂水平伸直 */
+	TIM2->CCR1 = 15;
+	TIM2->CCR2 = 6;
+	TIM3->CCR1 = 15;
+	TIM3->CCR2 = 5;
+	TIM3->CCR3 = 11;
+	TIM3->CCR4 = 15;
+}
 void myMeasure(){
 	ultrasonic::Ranging();
 	usart1.printf("distance: %d\r\n",ultrasonic::distance);

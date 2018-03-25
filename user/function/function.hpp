@@ -2,6 +2,8 @@
 #define __FUNCTION_H
 #include "sys.hpp"
 #include "adc.hpp"
+#include "tim.hpp"
+#include "usart.hpp"
 //function
 #include "me.hpp"
 #include "task.hpp"
@@ -25,6 +27,8 @@ extern gpio ECHO;
 //用户函数
 void myArmInit();
 void myArmRun();
+void startCharge();
+void finishCharge();
 void myMeasure();
 
 #endif //__FUNCTION_H

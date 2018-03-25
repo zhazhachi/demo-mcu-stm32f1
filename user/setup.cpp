@@ -40,6 +40,7 @@ void Other_Setup(){
 }
 void COM_Setup(){
 	usart1.Config(9600,0xab,0xcd);
+	usart2.Config(115200,0x77,0x30);
 	//i2c2.Config();
 	//spi2.Config();
 }
