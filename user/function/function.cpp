@@ -78,14 +78,14 @@ void startCharge(){
 		delay_ms(6000);//6s
 		ultrasonic::Ranging();
 		distance0=ultrasonic::distance;
-		if(distance0>130 && distance0<145){
+		if(distance0>110 && distance0<145){
 			*O1.O=1;//LED1灭
 			*O2.O=0;//LED2亮
 		}
 		delay_ms(4000);//4s
 		ultrasonic::Ranging();
 		distance1=ultrasonic::distance;
-		if(distance1>130 && distance1<145){
+		if(distance1>110 && distance1<145){
 			*O1.O=1;//LED1灭
 			*O2.O=0;//LED2亮
 		}
@@ -109,11 +109,11 @@ void finishCharge(){
 	TIM3->CCR4 = 5; //6号舵机
 	//*O1.O=0;//LED1亮
 	//*O2.O=0;//LED2亮
-	do{//等待车辆到0.5米之外
+	do{//等待车辆到0.4米之外
 		delay_ms(5000);//5s
 		ultrasonic::Ranging();
 		distance0=ultrasonic::distance;
-	}while(distance0<500);
+	}while(distance0<400);
 	//*O1.O=1;//LED1灭
 	//*O2.O=1;//LED2灭
 	/* 机械臂水平伸直 */

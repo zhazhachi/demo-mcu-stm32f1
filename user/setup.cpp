@@ -45,11 +45,11 @@ void COM_Setup(){
 	//spi2.Config();
 }
 void setup(){
-	ultrasonic::TRIG=TRIG;
-	ultrasonic::ECHO=ECHO;
+	ultrasonic::TRIG=&TRIG;
+	ultrasonic::ECHO=&ECHO;
 	ultrasonic::Init();
 	myArmInit();
-	
+    
 	task::init();
 	task::add(0x01,myMeasure,0,0xff, 1,0);//立即开始，永不停止，1秒1次，执行无限次
 
@@ -57,7 +57,7 @@ void setup(){
 }
 void loop(){
 	//IWDG_Feed();
-	task::run();
+	//task::run();
 	
 	//pwr::Sleep(0);//休眠
 }

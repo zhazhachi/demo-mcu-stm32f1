@@ -45,10 +45,10 @@ void USART1_Do(void){
 }
 void USART2_Do(void){
 	if(usart2.RX_BUF[1]=='a' && usart2.RX_BUF[2]=='y' && usart2.RX_BUF[3]=='='){
-		if(usart2.RX_BUF[3]=='1'){
+		if(usart2.RX_BUF[4]=='1'){
 			startCharge();
 		}
-		if(usart2.RX_BUF[3]=='2'){
+		if(usart2.RX_BUF[4]=='2'){
 			finishCharge();
 		}
 	}
