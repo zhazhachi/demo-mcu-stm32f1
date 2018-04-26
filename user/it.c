@@ -10,12 +10,12 @@ void DebugMon_Handler(void){}
 void PendSV_Handler(void){}
 
 
-void USART1_Do(void){
-	usart1.Send(usart1.RX_BUF, usart1.RX_Len);
+void USART1_Do(char* msg, u16 len){
+	usart1.send(msg, len);
 }
-void USART2_Do(void){
+void USART2_Do(char* msg, u16 len){
 }
-void USART3_Do(void){
+void USART3_Do(char* msg, u16 len){
 }
 
 void SPI1_Do(void){

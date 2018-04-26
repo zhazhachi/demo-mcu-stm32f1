@@ -4,6 +4,6 @@
 #include "function.hpp"
 
 namespace ans{
-	void OpenLock(void);
+	void openLock(void);
 }
 #endif //__ANS_H
