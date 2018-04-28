@@ -1,10 +1,19 @@
 #include "function.hpp"
 
-//GPIO
+/***  定义IO口(别忘记在function.hpp中引用)  ***/
 
-//全局变量
+/*  定义全局变量(别忘记在function.hpp中引用)  */
 
-//用户函数
+/*  定义用户函数(别忘记在function.hpp中引用)  */
 void myTest(){
-	usart1.printf("hello:%d\r\n",RunTime);
+	can.tx.IDE = CAN_Id_Extended;
+	can.tx.RTR = CAN_RTR_Data;
+	can.tx.ExtId = 0x1821FDFA;
+	can.tx.DLC = 5;
+	can.tx.Data[0] = 0x41;
+	can.tx.Data[1] = 0x1F;
+	can.tx.Data[2] = 0xC2;
+	can.tx.Data[3] = 0x31;
+	can.tx.Data[4] = 0x03;
+	can.send(&can.tx);
 }

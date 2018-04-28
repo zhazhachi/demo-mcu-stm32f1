@@ -26,6 +26,17 @@ void SPI2_Do(void){
 void I2C_do(void){}
 #endif
 
+_C void CAN1_RX1_IRQHandler(){
+	can.rcv(&can.rx);
+	usart3.printf("ID :%x\r\n", can.rx.ExtId);
+	usart3.printf("IDE:%x\r\n", can.rx.IDE);
+	usart3.printf("RTR:%x\r\n", can.rx.RTR);
+	usart3.printf("DLC:%x\r\n", can.rx.DLC);
+	usart3.printf("FMI:%x\r\n", can.rx.FMI);
+	for(u8 i=0; i<can.rx.DLC; i++)
+		usart3.printf("FMI:%x\r\n", can.rx.Data[i]);
+	
+}
 _C void RTC_IRQHandler(void){
 	if(RTC->CRL & 0x0001){//秒钟中断
 		RTC->CRL &= ~0x0001;//清除秒钟中断

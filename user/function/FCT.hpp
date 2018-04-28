@@ -3,6 +3,6 @@
 #include "sys.hpp"
 #include "function.hpp"
 
-void EnterFCTMode();
+void enterFCTMode();
 
 #endif //__FCT_H

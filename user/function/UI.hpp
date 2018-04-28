@@ -3,9 +3,15 @@
 #include "sys.hpp"
 #include "function.hpp"
 
-namespace UI{
-	extern u16 ID;
+class Ui{
+	public:
+		u16 ID;//64主界面 99次界面 9交互框
+		
+		void show(void);
 	
-	void show(void);
-}
+	private:
+		u16 oldID;
+};
+extern Ui ui;
+
 #endif //__UI_H

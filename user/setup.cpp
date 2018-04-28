@@ -1,57 +1,103 @@
+/*************************************************
+Copyright (C), 2018-2028, Crise Tech. Co., Ltd.
+File name: setup.cpp
+Author: rise0chen
+Version: 1.0
+Date: 2018.4.26
+Description: 用户主函数
+Usage: 
+History: 
+	rise0chen   2018.4.26   编写注释
+*************************************************/
 #include "setup.hpp"
 
-void RCC_Setup(){
-	{//初始化时钟
-		rcc::init(9);//系统时钟设置(HSE 9倍频)
-		//SystemInit();
-		RCC->AHBENR |= 1;//DMA1
-		RCC->APB2ENR|= 1;//AF
-	}
-	rcc::cmd(2, APB2_GPIOA, ENABLE);
-	rcc::cmd(2, APB2_GPIOB, ENABLE);
+/*************************************************
+Function: setupRCC
+Description: 初始化时钟树
+*************************************************/
+void setupRCC(void){
+	/***  初始化系统时钟  ***/
+	rcc.init(9); //HSE 9倍频
+	//SystemInit();
+	
+	/***  初始化外设时钟  ***/
+	rcc.cmd(0, AHB_DMA1, ENABLE);//DMA1
+	rcc.cmd(2, APB2_AFIO, ENABLE);//AF
+	rcc.cmd(2, APB2_GPIOA, ENABLE);//GPIOA
+	rcc.cmd(2, APB2_GPIOB, ENABLE);//GPIOB
 }
-void NVIC_Setup(){
-	nvic::configGroup(2);//2抢占2响应
+
+/*************************************************
+Function: setupOther
+Description: 其他初始化
+*************************************************/
+void setupOther(void){
+	nvic.configGroup(2);//2抢占2响应
+	
+	map::JTAG(1);//关闭JTAG,仅使用SWD
 }
-void GPIO_Setup(){
-	{//模拟输入，低功耗
-		RCC->APB2ENR |= 0x1fc;
-		GPIOA->CRL=0;
-		GPIOA->CRH=0;
-		GPIOB->CRL=0;
-		GPIOB->CRH=0;
-		GPIOC->CRL=0;
-		GPIOC->CRH=0;
-		GPIOD->CRL=0;
-		GPIOD->CRH=0;
-		RCC->APB2ENR &= ~0x1fc;
-	}
+
+/*************************************************
+Function: setupGPIO
+Description: 初始化GPIO
+*************************************************/
+void setupGPIO(void){
+	/***  将所有GPIO设置为模拟输入(低功耗)  ***/
+	RCC->APB2ENR |= 0x1fc;
+	GPIOA->CRL=0;
+	GPIOA->CRH=0;
+	GPIOB->CRL=0;
+	GPIOB->CRH=0;
+	GPIOC->CRL=0;
+	GPIOC->CRH=0;
+	GPIOD->CRL=0;
+	GPIOD->CRH=0;
+	RCC->APB2ENR &= ~0x1fc;
+	
+	/***  用户GPIO(请先在function.cpp中定义)  ***/
 	
 }
-void Other_Setup(){
-	map::JTAG(1);
-}
-void COM_Setup(){
+
+/*************************************************
+Function: setupCOM
+Description: 初始化通信接口,如USART、I2C、SPI、CAN
+*************************************************/
+void setupCOM(void){
 	usart1.config(9600,0x00,0x0A);
+	//usart2.config(9600,0x00,0x0A);
+	usart3.config(9600,0x00,0x0A);
 	//i2c2.config();
 	//spi2.config();
+	can.init();
 }
-void setup(){
-	flash::read(FLASH_START_ADDR, &me, sizeof(me));//读取设备信息
+
+/*************************************************
+Function: setup
+Description: 起始函数(仅执行1次)
+*************************************************/
+void setup(void){
+	flash.read(flash.addrStart, &me, sizeof(me));//读取设备信息
 	if(me.status[0]!=0x67){//设备初始化
 		u8 ID_def[8]={0x11,0x01,0x00,0x00,0x00,0x00,0x00,0x01};//设备ID
 		std::memcpy(me.ID, ID_def, 8);
 		me.status[0]=0x67;
-		flash::write(FLASH_START_ADDR, &me, sizeof(me));
+		flash.write(flash.addrStart, &me, sizeof(me));
 	}
-	task::init();
-	task::add(0x01,myTest,0,0xff, 5,2);//立即开始，永不停止，5秒1次，执行2次
+	can.configFilter(0, 1, 0x00000000, 0x00000000); //屏蔽模式 接收所有
+	
+	task.init();
+	task.add(0x01, myTest, 0, 0xff, 10, 0xff);//立即开始，永不停止，10秒1次，执行2次
 
 	//iwdg::config(6,1250);
 }
-void loop(){
+
+/*************************************************
+Function: loop
+Description: 循环函数(无限循环)
+*************************************************/
+void loop(void){
 	//iwdg::feed();
-	task::run();
+	task.run();
 	
 	//pwr::sleep(0);//休眠
 }

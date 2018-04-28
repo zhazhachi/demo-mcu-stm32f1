@@ -1,35 +1,41 @@
-#include "UI.hpp"
+/*************************************************
+Copyright (C), 2018-2028, Crise Tech. Co., Ltd.
+File name: ans.cpp
+Author: rise0chen
+Version: 1.0
+Date: 2018.4.26
+Description: 通信指令响应
+Usage: 
+History: 
+	rise0chen   2018.4.26   编写注释
+*************************************************/
+#include "Ui.hpp"
 
-namespace UI{
-	u16 ID=0;//64主界面 99次界面 9交互框
-	static u16 oldID;
+Ui ui;
+
+void Ui::show(void){
+	static char display[16];
+	static u8 i;
 	
-	void show(void){
-		static char display[16];
-		static u8 i;
-		
-		
-		if(oldID!=ID){
-			oldID=ID;
-			//LCD12864::Clear();
-		}
-		switch(ID){
-			case 0://主界面
-				
-				break;
-			case 1000://输密码
-				
-				break;
-			case 2000://万年历
-				
-				break;
-			case 3000://订单信息
-				
-				break;
-			case 65000://FCT
-				
-				break;
-		}
-		
+	if(oldID!=ID){
+		oldID=ID;
+		//LCD12864::Clear();
+	}
+	switch(ID){
+		case 0://主界面
+			
+			break;
+		case 1000://输密码
+			
+			break;
+		case 2000://万年历
+			
+			break;
+		case 3000://订单信息
+			
+			break;
+		case 65000://FCT
+			
+			break;
 	}
 }

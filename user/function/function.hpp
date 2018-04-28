@@ -1,22 +1,24 @@
 #ifndef __FUNCTION_H
 #define __FUNCTION_H
 #include "sys.hpp"
-#include "flash.hpp"
-#include "usart.hpp"
-//function
+#include "Flash.hpp"
+#include "Usart.hpp"
+#include "Can.hpp"
+#include "pwr.hpp"
+#include "Task.hpp"
+/***  引用用户函数  ***/
 #include "me.hpp"
-#include "task.hpp"
-#include "UI.hpp"
-#include "Ans.hpp"
+#include "ans.hpp"
+#include "Ui.hpp"
 #include "FCT.hpp"
 
+/***    定义IO口    ***/
 
 
-//GPIO
+/***  定义全局变量  ***/
 
-//全局变量
 
-//用户函数
+/***  定义用户函数  ***/
 void myTest();
 
 #endif //__FUNCTION_H

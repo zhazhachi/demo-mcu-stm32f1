@@ -465,14 +465,14 @@
               <FilePath>.\user\function\me.cpp</FilePath>
             </File>
             <File>
-              <FileName>Ans.cpp</FileName>
+              <FileName>ans.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\user\function\Ans.cpp</FilePath>
+              <FilePath>.\user\function\ans.cpp</FilePath>
             </File>
             <File>
-              <FileName>UI.cpp</FileName>
+              <FileName>Ui.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\user\function\UI.cpp</FilePath>
+              <FilePath>.\user\function\Ui.cpp</FilePath>
             </File>
             <File>
               <FileName>FCT.cpp</FileName>
@@ -540,9 +540,9 @@
               </FileOption>
             </File>
             <File>
-              <FileName>rcc.cpp</FileName>
+              <FileName>Rcc.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\system\src\rcc.cpp</FilePath>
+              <FilePath>.\lib\system\src\Rcc.cpp</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -595,9 +595,9 @@
               </FileOption>
             </File>
             <File>
-              <FileName>nvic.cpp</FileName>
+              <FileName>Nvic.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\system\src\nvic.cpp</FilePath>
+              <FilePath>.\lib\system\src\Nvic.cpp</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -650,9 +650,9 @@
               </FileOption>
             </File>
             <File>
-              <FileName>gpio.cpp</FileName>
+              <FileName>Gpio.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\system\src\gpio.cpp</FilePath>
+              <FilePath>.\lib\system\src\Gpio.cpp</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -703,36 +703,6 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
-            </File>
-            <File>
-              <FileName>exti.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\src\exti.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>dma.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\src\dma.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>adc.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\src\adc.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>dac.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\src\dac.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>pwr.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\src\pwr.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>flash.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\src\flash.cpp</FilePath>
             </File>
             <File>
               <FileName>map.cpp</FileName>
@@ -740,24 +710,59 @@
               <FilePath>.\lib\system\src\map.cpp</FilePath>
             </File>
             <File>
-              <FileName>tim.cpp</FileName>
+              <FileName>exti.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\system\src\tim.cpp</FilePath>
+              <FilePath>.\lib\system\src\exti.cpp</FilePath>
             </File>
             <File>
-              <FileName>i2c.cpp</FileName>
+              <FileName>Dma.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\system\src\i2c.cpp</FilePath>
+              <FilePath>.\lib\system\src\Dma.cpp</FilePath>
             </File>
             <File>
-              <FileName>spi.cpp</FileName>
+              <FileName>Adc.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\system\src\spi.cpp</FilePath>
+              <FilePath>.\lib\system\src\Adc.cpp</FilePath>
             </File>
             <File>
-              <FileName>usart.cpp</FileName>
+              <FileName>Dac.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\system\src\usart.cpp</FilePath>
+              <FilePath>.\lib\system\src\Dac.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>pwr.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\system\src\pwr.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Flash.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\system\src\Flash.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Tim.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\system\src\Tim.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>I2c.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\system\src\I2c.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Spi.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\system\src\Spi.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Usart.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\system\src\Usart.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Can.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\system\src\Can.cpp</FilePath>
             </File>
             <File>
               <FileName>wdg.cpp</FileName>
@@ -895,9 +900,9 @@
               <FilePath>.\lib\Common\src\bufRcv.cpp</FilePath>
             </File>
             <File>
-              <FileName>task.cpp</FileName>
+              <FileName>Task.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\Common\src\task.cpp</FilePath>
+              <FilePath>.\lib\Common\src\Task.cpp</FilePath>
             </File>
             <File>
               <FileName>escape.cpp</FileName>
@@ -1040,64 +1045,9 @@
               <FilePath>.\lib\hardware\src\EEPROM.cpp</FilePath>
             </File>
             <File>
-              <FileName>GSM.cpp</FileName>
+              <FileName>Mpu6050.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\hardware\src\GSM.cpp</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>2</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>MPU6050.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\hardware\src\MPU6050.cpp</FilePath>
+              <FilePath>.\lib\hardware\src\Mpu6050.cpp</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -1205,61 +1155,6 @@
               </FileOption>
             </File>
             <File>
-              <FileName>wifi.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\hardware\src\wifi.cpp</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>2</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
               <FileName>RFID.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\lib\hardware\src\RFID.cpp</FilePath>
@@ -1320,9 +1215,9 @@
               <FilePath>.\lib\hardware\src\ultrasonic.cpp</FilePath>
             </File>
             <File>
-              <FileName>fontRom.cpp</FileName>
+              <FileName>FontRom.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\hardware\src\fontRom.cpp</FilePath>
+              <FilePath>.\lib\hardware\src\FontRom.cpp</FilePath>
             </File>
           </Files>
         </Group>
