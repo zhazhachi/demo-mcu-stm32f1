@@ -1,12 +1,16 @@
 #ifndef __FUNCTION_H
 #define __FUNCTION_H
 #include "sys.hpp"
-#include "adc.hpp"
+#include "Adc.hpp"
+#include "Tim.hpp"
+#include "Flash.hpp"
+#include "Usart.hpp"
+#include "pwr.hpp"
 //function
 #include "me.hpp"
-#include "task.hpp"
-#include "UI.hpp"
-#include "Ans.hpp"
+#include "Task.hpp"
+#include "Ui.hpp"
+#include "ans.hpp"
 #include "FCT.hpp"
 
 
