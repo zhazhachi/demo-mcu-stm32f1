@@ -1,3 +1,14 @@
+/*************************************************
+Copyright (C), 2018-2028, Crise Tech. Co., Ltd.
+File name: it.c
+Author: rise0chen
+Version: 1.0
+Date: 2018.4.26
+Description: 中断服务函数
+Usage: 
+History: 
+	rise0chen   2018.4.26   编写注释
+*************************************************/
 #include "it.h"
 
 void NMI_Handler(void){}
@@ -9,12 +20,37 @@ void SVC_Handler(void){}
 void DebugMon_Handler(void){}
 void PendSV_Handler(void){}
 
-
+/*************************************************
+Function: USART1_Do
+Description: 串口1接收完字符串后,会自动调用此函数
+Input: 
+	msg   串口1接收到的字符串
+	len   串口1接收到的字符串长度
+Return: void
+*************************************************/
 void USART1_Do(char* msg, u16 len){
 	usart1.send(msg, len);
 }
+
+/*************************************************
+Function: USART2_Do
+Description: 串口2接收完字符串后,会自动调用此函数
+Input: 
+	msg   串口2接收到的字符串
+	len   串口2接收到的字符串长度
+Return: void
+*************************************************/
 void USART2_Do(char* msg, u16 len){
 }
+
+/*************************************************
+Function: USART3_Do
+Description: 串口3接收完字符串后,会自动调用此函数
+Input: 
+	msg   串口3接收到的字符串
+	len   串口3接收到的字符串长度
+Return: void
+*************************************************/
 void USART3_Do(char* msg, u16 len){
 }
 
@@ -37,6 +73,13 @@ _C void CAN1_RX1_IRQHandler(){
 		usart3.printf("FMI:%x\r\n", can.rx.Data[i]);
 	
 }
+
+/*************************************************
+Function: RTC_IRQHandler
+Description: RTC实时时钟中断
+Input: void
+Return: void
+*************************************************/
 _C void RTC_IRQHandler(void){
 	if(RTC->CRL & 0x0001){//秒钟中断
 		RTC->CRL &= ~0x0001;//清除秒钟中断

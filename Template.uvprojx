@@ -460,6 +460,11 @@
               <FilePath>.\user\function\function.cpp</FilePath>
             </File>
             <File>
+              <FileName>config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user\config.h</FilePath>
+            </File>
+            <File>
               <FileName>me.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\user\function\me.cpp</FilePath>
@@ -895,24 +900,24 @@
               </FileOption>
             </File>
             <File>
-              <FileName>bufRcv.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\Common\src\bufRcv.cpp</FilePath>
-            </File>
-            <File>
               <FileName>Task.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\lib\Common\src\Task.cpp</FilePath>
             </File>
             <File>
-              <FileName>escape.cpp</FileName>
+              <FileName>BufRcv.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\Common\src\escape.cpp</FilePath>
+              <FilePath>.\lib\Common\src\BufRcv.cpp</FilePath>
             </File>
             <File>
               <FileName>protocol.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\lib\Common\src\protocol.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>escape.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\lib\Common\src\escape.cpp</FilePath>
             </File>
             <File>
               <FileName>transCode.cpp</FileName>
@@ -1210,9 +1215,9 @@
               </FileOption>
             </File>
             <File>
-              <FileName>ultrasonic.cpp</FileName>
+              <FileName>Ultrasonic.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\lib\hardware\src\ultrasonic.cpp</FilePath>
+              <FilePath>.\lib\hardware\src\Ultrasonic.cpp</FilePath>
             </File>
             <File>
               <FileName>FontRom.cpp</FileName>

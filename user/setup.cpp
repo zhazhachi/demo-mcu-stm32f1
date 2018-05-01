@@ -63,9 +63,9 @@ Function: setupCOM
 Description: 初始化通信接口,如USART、I2C、SPI、CAN
 *************************************************/
 void setupCOM(void){
-	usart1.config(9600,0x00,0x0A);
-	//usart2.config(9600,0x00,0x0A);
-	usart3.config(9600,0x00,0x0A);
+	usart1.init(9600,0x00,0x0A);
+	//usart2.init(9600,0x00,0x0A);
+	usart3.init(9600,0x00,0x0A);
 	//i2c2.config();
 	//spi2.config();
 	can.init();
@@ -76,17 +76,17 @@ Function: setup
 Description: 起始函数(仅执行1次)
 *************************************************/
 void setup(void){
-	flash.read(flash.addrStart, &me, sizeof(me));//读取设备信息
+	flash.read(FLASH_ADDR_START, &me, sizeof(me));//读取设备信息
 	if(me.status[0]!=0x67){//设备初始化
 		u8 ID_def[8]={0x11,0x01,0x00,0x00,0x00,0x00,0x00,0x01};//设备ID
 		std::memcpy(me.ID, ID_def, 8);
 		me.status[0]=0x67;
-		flash.write(flash.addrStart, &me, sizeof(me));
+		flash.write(FLASH_ADDR_START, &me, sizeof(me));
 	}
 	can.configFilter(0, 1, 0x00000000, 0x00000000); //屏蔽模式 接收所有
 	
 	task.init();
-	task.add(0x01, myTest, 0, 0xff, 10, 0xff);//立即开始，永不停止，10秒1次，执行2次
+	task.add(0x01, myTest, 10, 0xff, 0, 0xff);//10秒1次,执行无限次,立即开始,永不停止
 
 	//iwdg::config(6,1250);
 }

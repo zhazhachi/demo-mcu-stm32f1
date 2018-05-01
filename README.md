@@ -1,6 +1,6 @@
 # rise0chen/demo-mcu-stm32f1
-### 基于[C++函数库](https://gitee.com/rise0chen/lib-mcu-stm32f1)的STM32F1系列mcu的MDK5工程示例
-### master分支为空白模板; 更多示例，见各个分支。
+基于[C++函数库](https://gitee.com/rise0chen/lib-mcu-stm32f1)的STM32F1系列mcu的MDK5工程示例  
+master分支为空白模板; 更多示例，见各个分支。  
 
 ## 引脚定义
 GPIO|GPIO_Name   |GPIO_Mode|备注
@@ -31,6 +31,6 @@ git submodule update --init --recursive
 
 
 ## 备注
-\r\n
-0x0D 0x0A
-回车 换行
+\r\n  
+0x0D 0x0A  
+回车 换行  

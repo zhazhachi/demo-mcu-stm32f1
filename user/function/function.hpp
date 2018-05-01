@@ -7,6 +7,7 @@
 #include "pwr.hpp"
 #include "Task.hpp"
 /***  引用用户函数  ***/
+#include "config.h"
 #include "me.hpp"
 #include "ans.hpp"
 #include "Ui.hpp"
