@@ -31,50 +31,50 @@ void TIM1_UP_IRQHandler(void){//spwm
 	}
 }
 
-void USART1_Do(void){
+void USART1_Do(char* msg, u16 len){
 }
-void USART2_Do(void){
-	if(usart2.RX_BUF[0]=='A' && usart2.RX_BUF[1]=='T'){
-		switch(usart2.RX_BUF[3]){
+void USART2_Do(char* msg, u16 len){
+	if(usart2.rx.buf[0]=='A' && usart2.rx.buf[1]=='T'){
+		switch(usart2.rx.buf[3]){
 			case '0'://开关
-				if(usart2.RX_BUF[5]==1 || usart2.RX_BUF[5]=='1'){
-					tim1.BaseConfig(1,T,1);
+				if(usart2.rx.buf[5]==1 || usart2.rx.buf[5]=='1'){
+					tim1.config(1,T,1);
 					bei=T/7200.0;
 					n=200/(1000.0*(72000/T)/Fsin);
 					
-					tim1.Cmd(ENABLE);//使能
+					tim1.cmd(ENABLE);//使能
 				}else{
-					tim1.Cmd(DISABLE);//失能
+					tim1.cmd(DISABLE);//失能
 				}
 				break;
 			case '1'://开关频率：7200=0.1ms 10kHz
 				//开关频率：（1~20kHz）
-				T=72000/usart2.RX_BUF[5];
+				T=72000/usart2.rx.buf[5];
 				break;
 			case '2'://Sin周期：2*100*0.1ms=20ms 50Hz
 				//周期：（1~100Hz）
-				Fsin=usart2.RX_BUF[5];
+				Fsin=usart2.rx.buf[5];
 				break;
 			case '3'://死区时间：72=1us
 				//死区时间：（0~3.54us） 1=13.8888ns
-				tim1.OCConfig(1,0,usart2.RX_BUF[5]);
-				tim1.OCConfig(2,0,usart2.RX_BUF[5]);
+				tim1.configOC(1,0,usart2.rx.buf[5]);
+				tim1.configOC(2,0,usart2.rx.buf[5]);
 				break;
 			case '9':
-				T=72000/usart2.RX_BUF[5];//计算PWM周期
-				tim1.BaseConfig(1,T,1);//设置PWM周期
-				Fsin=usart2.RX_BUF[6];//获取基波频率
-				tim1.OCConfig(1,0,usart2.RX_BUF[7]);//设置死区时间
-				tim1.OCConfig(2,0,usart2.RX_BUF[7]);
+				T=72000/usart2.rx.buf[5];//计算PWM周期
+				tim1.config(1,T,1);//设置PWM周期
+				Fsin=usart2.rx.buf[6];//获取基波频率
+				tim1.configOC(1,0,usart2.rx.buf[7]);//设置死区时间
+				tim1.configOC(2,0,usart2.rx.buf[7]);
 				bei=T/7200.0;
 				n=200/(1000.0*(72000/T)/Fsin);
 				
-				tim1.Cmd(ENABLE);//使能
+				tim1.cmd(ENABLE);//使能
 				break;
 		}
 	}
 }
-void USART3_Do(void){
+void USART3_Do(char* msg, u16 len){
 }
 
 void SPI1_Do(void){

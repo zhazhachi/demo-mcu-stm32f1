@@ -1,7 +1,10 @@
 #ifndef __FUNCTION_H
 #define __FUNCTION_H
 #include "sys.hpp"
-#include "adc.hpp"
+#include "Adc.hpp"
+#include "Tim.hpp"
+#include "Usart.hpp"
+#include "pwr.hpp"
 //function
 #include "me.hpp"
 #include "task.hpp"
