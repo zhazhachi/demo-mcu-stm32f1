@@ -1,11 +1,11 @@
 #include "servo.hpp"
 
 namespace servo{
-	void  Config(){
-		rcc::Cmd(1, APB1_TIM3,ENABLE);
-		PWM.Config(P_PPAF,P_50MHz);
-		tim3.BaseConfig(7200,200,0);//定时器周期
-		tim3.OCConfig(2,0);
+	void  config(){
+		rcc.cmd(1, APB1_TIM3,ENABLE);
+		PWM.config(P_PPAF,P_50MHz);
+		tim3.config(7200,200,0);//定时器周期
+		tim3.configOC(2,0);
 		
 		TIM3->CR1 |= 1;//使能
 		Close();

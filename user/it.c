@@ -53,28 +53,28 @@ void EXTI9_5_IRQHandler(void){
 	}
 }
 
-void USART1_Do(void){
+void USART1_Do(char* msg, u16 len){
 }
-void USART2_Do(void){
-	if(usart2.RX_BUF[0]=='T' && usart2.RX_BUF[1]=='A' && usart2.RX_BUF[2]=='+'){
-		if(usart2.RX_BUF[3]=='o' && usart2.RX_BUF[4]=='p' && usart2.RX_BUF[5]=='e' && usart2.RX_BUF[6]=='n'){//开锁
+void USART2_Do(char* msg, u16 len){
+	if(usart2.rx.buf[0]=='T' && usart2.rx.buf[1]=='A' && usart2.rx.buf[2]=='+'){
+		if(usart2.rx.buf[3]=='o' && usart2.rx.buf[4]=='p' && usart2.rx.buf[5]=='e' && usart2.rx.buf[6]=='n'){//开锁
 			openLock();
 			*CH_PD.O=0;//WIFI断电
 			displayLed(LED0,1);//LED灭
-		}else if(usart2.RX_BUF[3]=='o' && usart2.RX_BUF[4]=='n' && usart2.RX_BUF[5]=='\n'){//设备上线
+		}else if(usart2.rx.buf[3]=='o' && usart2.rx.buf[4]=='n' && usart2.rx.buf[5]=='\n'){//设备上线
 			displayLed(LED0,0);//LED亮
-		}else if(usart2.RX_BUF[3]=='o' && usart2.RX_BUF[4]=='f' && usart2.RX_BUF[5]=='f'){//设备关机
+		}else if(usart2.rx.buf[3]=='o' && usart2.rx.buf[4]=='f' && usart2.rx.buf[5]=='f'){//设备关机
 			*CH_PD.O=0;//WIFI断电
 			displayLed(LED0,1);//LED灭
-		}else if(usart2.RX_BUF[3]=='f' && usart2.RX_BUF[4]=='i' && usart2.RX_BUF[5]=='n' && usart2.RX_BUF[6]=='d'){//进入微信发现
+		}else if(usart2.rx.buf[3]=='f' && usart2.rx.buf[4]=='i' && usart2.rx.buf[5]=='n' && usart2.rx.buf[6]=='d'){//进入微信发现
 			displayLed(LED0,-1,2,500);//2次闪烁 2s
-		}/*else if(usart2.RX_BUF[3]=='s' && usart2.RX_BUF[4]=='c' && usart2.RX_BUF[5]=='o' && usart2.RX_BUF[6]=='k'){//配网成功
+		}/*else if(usart2.rx.buf[3]=='s' && usart2.rx.buf[4]=='c' && usart2.rx.buf[5]=='o' && usart2.rx.buf[6]=='k'){//配网成功
 			*CH_PD.O=0;//WIFI断电
 			displayLed(LED0,1);//LED灭
 		}*/
 	}
 }
-void USART3_Do(void){
+void USART3_Do(char* msg, u16 len){
 }
 
 void SPI1_Do(void){
