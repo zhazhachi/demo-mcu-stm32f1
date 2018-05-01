@@ -45,30 +45,30 @@ void EXTI9_5_IRQHandler(void){
 	EXTI->PR=0x03E0;
 }
 
-void USART1_Do(void){
+void USART1_Do(char* msg, u16 len){
 }
-void USART2_Do(void){
-	if(usart2.RX_BUF[0]=='T' && usart2.RX_BUF[1]=='A' && usart2.RX_BUF[2]=='+'){
-		if(usart2.RX_BUF[3]=='s' && usart2.RX_BUF[4]=='e' && usart2.RX_BUF[5]=='t'){//设置
-			state[0]=usart2.RX_BUF[7];
-			state[1]=usart2.RX_BUF[8];
-			state[2]=usart2.RX_BUF[9];
+void USART2_Do(char* msg, u16 len){
+	if(usart2.rx.buf[0]=='T' && usart2.rx.buf[1]=='A' && usart2.rx.buf[2]=='+'){
+		if(usart2.rx.buf[3]=='s' && usart2.rx.buf[4]=='e' && usart2.rx.buf[5]=='t'){//设置
+			state[0]=usart2.rx.buf[7];
+			state[1]=usart2.rx.buf[8];
+			state[2]=usart2.rx.buf[9];
 			if(state[0]=='0'){*relay[0].O=1;}else{*relay[0].O=0;}
 			if(state[1]=='0'){*relay[1].O=1;}else{*relay[1].O=0;}
 			if(state[2]=='0'){*relay[2].O=1;}else{*relay[2].O=0;}
-		}else if(usart2.RX_BUF[3]=='o' && usart2.RX_BUF[4]=='n' && usart2.RX_BUF[5]=='\n'){//设备上线
+		}else if(usart2.rx.buf[3]=='o' && usart2.rx.buf[4]=='n' && usart2.rx.buf[5]=='\n'){//设备上线
 			
-		}else if(usart2.RX_BUF[3]=='o' && usart2.RX_BUF[4]=='f' && usart2.RX_BUF[5]=='f'){//设备关机
+		}else if(usart2.rx.buf[3]=='o' && usart2.rx.buf[4]=='f' && usart2.rx.buf[5]=='f'){//设备关机
 			
-		}else if(usart2.RX_BUF[3]=='f' && usart2.RX_BUF[4]=='i' && usart2.RX_BUF[5]=='n' && usart2.RX_BUF[6]=='d'){//进入微信发现
+		}else if(usart2.rx.buf[3]=='f' && usart2.rx.buf[4]=='i' && usart2.rx.buf[5]=='n' && usart2.rx.buf[6]=='d'){//进入微信发现
 			
-		}/*else if(usart2.RX_BUF[3]=='s' && usart2.RX_BUF[4]=='c' && usart2.RX_BUF[5]=='o' && usart2.RX_BUF[6]=='k'){//配网成功
+		}/*else if(usart2.rx.buf[3]=='s' && usart2.rx.buf[4]=='c' && usart2.rx.buf[5]=='o' && usart2.rx.buf[6]=='k'){//配网成功
 			*CH_PD.O=0;//WIFI断电
 			displayLed(LED0,1);//LED灭
 		}*/
 	}
 }
-void USART3_Do(void){
+void USART3_Do(char* msg, u16 len){
 }
 
 void SPI1_Do(void){
