@@ -1,41 +1,42 @@
 #include "function.hpp"
 
 //GPIO
-gpio TRIG=gpio(PB,8);
-gpio ECHO=gpio(PB,9);
-gpio K1=gpio(PA, 11);
-gpio K2=gpio(PA, 15);
-gpio O1=gpio(PB, 12);
-gpio O2=gpio(PB, 15);
-gpio PWM0=gpio(PA,0);
-gpio PWM1=gpio(PA,1);
-gpio PWM2=gpio(PA,6);
-gpio PWM3=gpio(PA,7);
-gpio PWM4=gpio(PB,0);
-gpio PWM5=gpio(PB,1);
+Gpio TRIG(PB,8);
+Gpio ECHO(PB,9);
+Gpio K1(PA, 11);
+Gpio K2(PA, 15);
+Gpio O1(PB, 12);
+Gpio O2(PB, 15);
+Gpio PWM0(PA,0);
+Gpio PWM1(PA,1);
+Gpio PWM2(PA,6);
+Gpio PWM3(PA,7);
+Gpio PWM4(PB,0);
+Gpio PWM5(PB,1);
 
 //全局变量
+Ultrasonic ultrasonic(&TRIG, &ECHO);
 
 //用户函数
 void myArmInit(){
-	rcc::Cmd(1, APB1_TIM2,ENABLE);
-	gpio(PA,0).Config(P_ODAF,P_50MHz);
-	gpio(PA,1).Config(P_ODAF,P_50MHz);
-	tim2.BaseConfig(7200,200,0);//定时器周期
-	tim2.OCConfig(1,0);
-	tim2.OCConfig(2,0);
+	rcc.cmd(1, APB1_TIM2,ENABLE);
+	Gpio(PA,0).config(P_ODAF,P_50MHz);
+	Gpio(PA,1).config(P_ODAF,P_50MHz);
+	tim2.config(7200,200,0);//定时器周期
+	tim2.configOC(1,0);
+	tim2.configOC(2,0);
 	TIM2->CR1 |= 1;//使能
 	
-	rcc::Cmd(1, APB1_TIM3,ENABLE);
-	gpio(PA,6).Config(P_ODAF,P_50MHz);
-	gpio(PA,7).Config(P_ODAF,P_50MHz);
-	gpio(PB,0).Config(P_ODAF,P_50MHz);
-	gpio(PB,1).Config(P_ODAF,P_50MHz);
-	tim3.BaseConfig(7200,200,0);//定时器周期
-	tim3.OCConfig(1,0);
-	tim3.OCConfig(2,0);
-	tim3.OCConfig(3,0);
-	tim3.OCConfig(4,0);
+	rcc.cmd(1, APB1_TIM3,ENABLE);
+	Gpio(PA,6).config(P_ODAF,P_50MHz);
+	Gpio(PA,7).config(P_ODAF,P_50MHz);
+	Gpio(PB,0).config(P_ODAF,P_50MHz);
+	Gpio(PB,1).config(P_ODAF,P_50MHz);
+	tim3.config(7200,200,0);//定时器周期
+	tim3.configOC(1,0);
+	tim3.configOC(2,0);
+	tim3.configOC(3,0);
+	tim3.configOC(4,0);
 	TIM3->CR1 |= 1;//使能
 	
 	TIM2->CCR1 = 15;
@@ -76,15 +77,15 @@ void startCharge(){
 	TIM3->CCR4 = 5; //6号舵机
 	do{//等待车辆停止运动
 		delay_ms(6000);//6s
-		ultrasonic::Ranging();
-		distance0=ultrasonic::distance;
+		ultrasonic.ranging();
+		distance0=ultrasonic.distance;
 		if(distance0>110 && distance0<145){
 			*O1.O=1;//LED1灭
 			*O2.O=0;//LED2亮
 		}
 		delay_ms(4000);//4s
-		ultrasonic::Ranging();
-		distance1=ultrasonic::distance;
+		ultrasonic.ranging();
+		distance1=ultrasonic.distance;
 		if(distance1>110 && distance1<145){
 			*O1.O=1;//LED1灭
 			*O2.O=0;//LED2亮
@@ -111,8 +112,8 @@ void finishCharge(){
 	//*O2.O=0;//LED2亮
 	do{//等待车辆到0.4米之外
 		delay_ms(5000);//5s
-		ultrasonic::Ranging();
-		distance0=ultrasonic::distance;
+		ultrasonic.ranging();
+		distance0=ultrasonic.distance;
 	}while(distance0<400);
 	//*O1.O=1;//LED1灭
 	//*O2.O=1;//LED2灭
@@ -125,6 +126,6 @@ void finishCharge(){
 	TIM3->CCR4 = 15;
 }
 void myMeasure(){
-	ultrasonic::Ranging();
-	usart1.printf("distance: %d\r\n",ultrasonic::distance);
+	ultrasonic.ranging();
+	usart1.printf("distance: %d\r\n",ultrasonic.distance);
 }

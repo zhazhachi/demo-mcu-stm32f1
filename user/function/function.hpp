@@ -15,14 +15,15 @@
 
 
 //GPIO
-extern gpio K1;
-extern gpio K2;
-extern gpio O1;
-extern gpio O2;
-extern gpio TRIG;
-extern gpio ECHO;
+extern Gpio K1;
+extern Gpio K2;
+extern Gpio O1;
+extern Gpio O2;
+extern Gpio TRIG;
+extern Gpio ECHO;
 
 //全局变量
+extern Ultrasonic ultrasonic;
 
 //用户函数
 void myArmInit();

@@ -23,37 +23,37 @@ void EXTI15_10_IRQHandler(void){
 	}
 }
 
-void USART1_Do(void){
-	switch(usart1.RX_BUF[1]){
+void USART1_Do(char* msg, u16 len){
+	switch(usart1.rx.buf[1]){
 		//6~24
-		case 1:TIM2->CCR1 = usart1.RX_BUF[2];break;
-		case 2:TIM2->CCR2 = usart1.RX_BUF[2];break;
-		case 3:TIM3->CCR1 = usart1.RX_BUF[2];break;
-		case 4:TIM3->CCR2 = usart1.RX_BUF[2];break;
-		case 5:TIM3->CCR3 = usart1.RX_BUF[2];break;
-		case 6:TIM3->CCR4 = usart1.RX_BUF[2];break;
+		case 1:TIM2->CCR1 = usart1.rx.buf[2];break;
+		case 2:TIM2->CCR2 = usart1.rx.buf[2];break;
+		case 3:TIM3->CCR1 = usart1.rx.buf[2];break;
+		case 4:TIM3->CCR2 = usart1.rx.buf[2];break;
+		case 5:TIM3->CCR3 = usart1.rx.buf[2];break;
+		case 6:TIM3->CCR4 = usart1.rx.buf[2];break;
 		case 0xff:
-			TIM2->CCR1 = usart1.RX_BUF[2];
-			TIM2->CCR2 = usart1.RX_BUF[3];
-			TIM3->CCR1 = usart1.RX_BUF[4];
-			TIM3->CCR2 = usart1.RX_BUF[5];
-			TIM3->CCR3 = usart1.RX_BUF[6];
-			TIM3->CCR4 = usart1.RX_BUF[7];
+			TIM2->CCR1 = usart1.rx.buf[2];
+			TIM2->CCR2 = usart1.rx.buf[3];
+			TIM3->CCR1 = usart1.rx.buf[4];
+			TIM3->CCR2 = usart1.rx.buf[5];
+			TIM3->CCR3 = usart1.rx.buf[6];
+			TIM3->CCR4 = usart1.rx.buf[7];
 		break;
 	}
-	usart1.printf("%d:%d\r\n",usart1.RX_BUF[1],usart1.RX_BUF[2]);
+	usart1.printf("%d:%d\r\n",usart1.rx.buf[1],usart1.rx.buf[2]);
 }
-void USART2_Do(void){
-	if(usart2.RX_BUF[1]=='a' && usart2.RX_BUF[2]=='y' && usart2.RX_BUF[3]=='='){
-		if(usart2.RX_BUF[4]=='1'){
+void USART2_Do(char* msg, u16 len){
+	if(usart2.rx.buf[1]=='a' && usart2.rx.buf[2]=='y' && usart2.rx.buf[3]=='='){
+		if(usart2.rx.buf[4]=='1'){
 			startCharge();
 		}
-		if(usart2.RX_BUF[4]=='2'){
+		if(usart2.rx.buf[4]=='2'){
 			finishCharge();
 		}
 	}
 }
-void USART3_Do(void){
+void USART3_Do(char* msg, u16 len){
 }
 
 void SPI1_Do(void){
