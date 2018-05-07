@@ -85,8 +85,8 @@ void setup(void){
 	}
 	can.configFilter(0, 1, 0x00000000, 0x00000000); //屏蔽模式 接收所有
 	
-	task.init();
-	task.add(0x01, myTest, 10, 0xff, 0, 0xff);//10秒1次,执行无限次,立即开始,永不停止
+	task.init(1000);//1000ms(1s)心跳1次
+	task.add(0x01, myTest, 10, 0xFFFF);//10秒1次,执行无限次
 
 	//iwdg::config(6,1250);
 }
