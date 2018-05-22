@@ -41,6 +41,7 @@ Input:
 Return: void
 *************************************************/
 void USART2_Do(char* msg, u16 len){
+	usart3.send(msg, len);
 }
 
 /*************************************************
@@ -52,6 +53,7 @@ Input:
 Return: void
 *************************************************/
 void USART3_Do(char* msg, u16 len){
+	usart2.send(msg, len);
 }
 
 void SPI1_Do(void){

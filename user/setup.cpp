@@ -64,11 +64,11 @@ Description: 初始化通信接口,如USART、I2C、SPI、CAN
 *************************************************/
 void setupCOM(void){
 	usart1.init(9600,0x00,0x0A);
-	//usart2.init(9600,0x00,0x0A);
-	usart3.init(9600,0x00,0x0A);
+	usart2.init(9600,0x00,0x0A);
+	usart3.init(115200,0x00,0x0A);
 	//i2c2.config();
 	//spi2.config();
-	can.init();
+	//can.init();
 }
 
 /*************************************************
@@ -83,8 +83,6 @@ void setup(void){
 		me.status[0]=0x67;
 		flash.write(FLASH_ADDR_START, &me, sizeof(me));
 	}
-	can.configFilter(0, 1, 0x00000000, 0x00000000); //屏蔽模式 接收所有
-	
 	task.init(1000);//1000ms(1s)心跳1次
 	task.add(0x01, myTest, 10, 0xFFFF);//10秒1次,执行无限次
 
