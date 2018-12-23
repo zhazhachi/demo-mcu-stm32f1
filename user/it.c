@@ -20,50 +20,42 @@ void SVC_Handler(void){}
 void DebugMon_Handler(void){}
 void PendSV_Handler(void){}
 
-/*************************************************
-Function: USART1_Do
-Description: 串口1接收完字符串后,会自动调用此函数
-Input: 
-	msg   串口1接收到的字符串
-	len   串口1接收到的字符串长度
-Return: void
-*************************************************/
-void USART1_Do(char* msg, u16 len){
-	usart1.send(msg, len);
-}
 
 /*************************************************
-Function: USART2_Do
-Description: 串口2接收完字符串后,会自动调用此函数
-Input: 
-	msg   串口2接收到的字符串
-	len   串口2接收到的字符串长度
-Return: void
+Function: USART1_IRQHandler
+Description: 串口接收中断
 *************************************************/
-void USART2_Do(char* msg, u16 len){
-	usart3.send(msg, len);
+_C void USART1_IRQHandler(void){
+	u8 res;
+
+	if(USART1->SR&(1<<5)){
+		res=USART1->DR;
+		//to do something
+		recvHadle_usart1(res);
+	}
 }
+_C void USART2_IRQHandler(void){
+	u8 res;
+
+	if(USART2->SR&(1<<5)){
+		res=USART2->DR;
+		//to do something
+	}
+}
+_C void USART3_IRQHandler(void){
+	u8 res;
+
+	if(USART3->SR&(1<<5)){
+		res=USART2->DR;
+		//to do something
+	}
+}
+
 
 /*************************************************
-Function: USART3_Do
-Description: 串口3接收完字符串后,会自动调用此函数
-Input: 
-	msg   串口3接收到的字符串
-	len   串口3接收到的字符串长度
-Return: void
+Function: CAN1_RX1_IRQHandler
+Description: CAN总线接收中断
 *************************************************/
-void USART3_Do(char* msg, u16 len){
-	usart2.send(msg, len);
-}
-
-void SPI1_Do(void){
-}
-void SPI2_Do(void){
-}
-#if I2C_DMA
-void I2C_do(void){}
-#endif
-
 _C void CAN1_RX1_IRQHandler(){
 	can.rcv(&can.rx);
 	usart3.printf("ID :%x\r\n", can.rx.ExtId);
@@ -79,8 +71,6 @@ _C void CAN1_RX1_IRQHandler(){
 /*************************************************
 Function: RTC_IRQHandler
 Description: RTC实时时钟中断
-Input: void
-Return: void
 *************************************************/
 _C void RTC_IRQHandler(void){
 	if(RTC->CRL & 0x0001){//秒钟中断

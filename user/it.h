@@ -1,7 +1,7 @@
 #ifndef __IT_H
 #define __IT_H
-#include "sys.hpp"
-#include "function.hpp"
+#include "sys.h"
+#include "function.h"
 
 #ifdef __cplusplus
 extern "C" {

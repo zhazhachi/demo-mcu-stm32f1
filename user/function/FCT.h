@@ -1,7 +1,7 @@
 #ifndef __FCT_H
 #define __FCT_H
-#include "sys.hpp"
-#include "function.hpp"
+#include "sys.h"
+#include "function.h"
 
 void enterFCTMode();
 

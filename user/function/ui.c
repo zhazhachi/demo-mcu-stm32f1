@@ -9,11 +9,12 @@ Usage:
 History: 
 	rise0chen   2018.4.26   编写注释
 *************************************************/
-#include "Ui.hpp"
+#include "ui.h"
 
-Ui ui;
+static u16 ID;//64主界面 99次界面 9交互框
+static u16 oldID;//上次界面ID
 
-void Ui::show(void){
+void ui_show(void){
 	//static char display[16];
 	
 	if(oldID!=ID){
