@@ -322,7 +322,7 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
+            <uC99>1</uC99>
             <useXO>0</useXO>
             <v6Lang>1</v6Lang>
             <v6LangP>1</v6LangP>
@@ -332,7 +332,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>--cpp11</MiscControls>
+              <MiscControls></MiscControls>
               <Define>STM32F10X_MD</Define>
               <Undefine></Undefine>
               <IncludePath>.\user;.\user\function;.\lib\fiip;.\lib\fiip\Link;.\lib\fiip\DataFormat;.\lib\Common;.\lib\hardware;.\lib\system;.\lib\core</IncludePath>
@@ -380,9 +380,9 @@
           <GroupName>user</GroupName>
           <Files>
             <File>
-              <FileName>setup.cpp</FileName>
+              <FileName>setup.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\user\setup.cpp</FilePath>
+              <FilePath>.\user\setup.c</FilePath>
             </File>
             <File>
               <FileName>it.c</FileName>
@@ -390,9 +390,9 @@
               <FilePath>.\user\it.c</FilePath>
             </File>
             <File>
-              <FileName>main.cpp</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\user\main.cpp</FilePath>
+              <FilePath>.\user\main.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -461,17 +461,17 @@
             </File>
             <File>
               <FileName>function.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\user\function\function.c</FilePath>
             </File>
             <File>
               <FileName>me.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\user\function\me.c</FilePath>
             </File>
             <File>
               <FileName>recvHadle.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\user\function\recvHadle.c</FilePath>
             </File>
             <File>
@@ -480,8 +480,13 @@
               <FilePath>.\user\function\ui.c</FilePath>
             </File>
             <File>
+              <FileName>linkUsart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\function\fiip_link\linkUsart.c</FilePath>
+            </File>
+            <File>
               <FileName>fct.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\user\function\fct.c</FilePath>
             </File>
           </Files>
@@ -490,29 +495,39 @@
           <GroupName>fiip</GroupName>
           <Files>
             <File>
-              <FileName>Route.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\fiip\Link\Route.cpp</FilePath>
+              <FileName>fiip.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\fiip\fiip\fiip.c</FilePath>
             </File>
             <File>
-              <FileName>DataFormat.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\fiip\DataFormat\DataFormat.cpp</FilePath>
+              <FileName>route.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\fiip\fiip\link\route.c</FilePath>
             </File>
             <File>
-              <FileName>BufRecv.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\fiip\DataFormat\BufRecv.cpp</FilePath>
+              <FileName>bufRecver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\fiip\fiip\frame\bufRecver.c</FilePath>
             </File>
             <File>
               <FileName>crc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\fiip\DataFormat\crc.c</FilePath>
+              <FilePath>.\lib\fiip\fiip\frame\crc.c</FilePath>
             </File>
             <File>
-              <FileName>escape.c</FileName>
+              <FileName>format.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\fiip\DataFormat\escape.c</FilePath>
+              <FilePath>.\lib\fiip\fiip\frame\format.c</FilePath>
+            </File>
+            <File>
+              <FileName>stdp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\fiip\fiip_protocol\stdp.c</FilePath>
+            </File>
+            <File>
+              <FileName>stdpFormat.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\fiip\fiip_protocol\stdpFormat.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -520,9 +535,9 @@
           <GroupName>Common</GroupName>
           <Files>
             <File>
-              <FileName>std.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\Common\std.cpp</FilePath>
+              <FileName>std.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\Common\std.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -576,7 +591,7 @@
             </File>
             <File>
               <FileName>delay.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\lib\Common\delay.c</FilePath>
               <FileOption>
                 <CommonProperty>
@@ -631,17 +646,17 @@
             </File>
             <File>
               <FileName>task.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\lib\Common\task.c</FilePath>
             </File>
             <File>
               <FileName>transCode.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\lib\Common\transCode.c</FilePath>
             </File>
             <File>
               <FileName>font.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\lib\Common\font.c</FilePath>
             </File>
             <File>
@@ -705,9 +720,9 @@
           <GroupName>hardware</GroupName>
           <Files>
             <File>
-              <FileName>DS18B20.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\hardware\DS18B20.cpp</FilePath>
+              <FileName>DS18B20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\hardware\DS18B20.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -760,14 +775,14 @@
               </FileOption>
             </File>
             <File>
-              <FileName>EEPROM.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\hardware\EEPROM.cpp</FilePath>
+              <FileName>Ultrasonic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\hardware\Ultrasonic.c</FilePath>
             </File>
             <File>
-              <FileName>Mpu6050.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\hardware\Mpu6050.cpp</FilePath>
+              <FileName>InfraRed.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\hardware\InfraRed.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -820,9 +835,14 @@
               </FileOption>
             </File>
             <File>
-              <FileName>InfraRed.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\hardware\InfraRed.cpp</FilePath>
+              <FileName>EEPROM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\hardware\EEPROM.c</FilePath>
+            </File>
+            <File>
+              <FileName>MPU6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\hardware\MPU6050.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -875,9 +895,9 @@
               </FileOption>
             </File>
             <File>
-              <FileName>RFID.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\hardware\RFID.cpp</FilePath>
+              <FileName>RFID.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\hardware\RFID.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -930,14 +950,9 @@
               </FileOption>
             </File>
             <File>
-              <FileName>Ultrasonic.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\hardware\Ultrasonic.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>FontRom.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\hardware\FontRom.cpp</FilePath>
+              <FileName>FontRom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\hardware\FontRom.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -946,7 +961,7 @@
           <Files>
             <File>
               <FileName>sys.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\lib\system\sys.c</FilePath>
               <FileOption>
                 <CommonProperty>
@@ -1000,9 +1015,9 @@
               </FileOption>
             </File>
             <File>
-              <FileName>Rcc.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\Rcc.cpp</FilePath>
+              <FileName>rcc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\rcc.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -1056,7 +1071,7 @@
             </File>
             <File>
               <FileName>nvic.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\lib\system\nvic.c</FilePath>
               <FileOption>
                 <CommonProperty>
@@ -1110,9 +1125,9 @@
               </FileOption>
             </File>
             <File>
-              <FileName>Gpio.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\Gpio.cpp</FilePath>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\gpio.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -1171,68 +1186,68 @@
             </File>
             <File>
               <FileName>dma.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\lib\system\dma.c</FilePath>
             </File>
             <File>
-              <FileName>Adc.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\Adc.cpp</FilePath>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\adc.c</FilePath>
             </File>
             <File>
-              <FileName>Dac.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\Dac.cpp</FilePath>
+              <FileName>dac.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\dac.c</FilePath>
             </File>
             <File>
               <FileName>pwr.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\lib\system\pwr.c</FilePath>
             </File>
             <File>
               <FileName>flash.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\lib\system\flash.c</FilePath>
             </File>
             <File>
-              <FileName>Tim.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\Tim.cpp</FilePath>
+              <FileName>tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\tim.c</FilePath>
             </File>
             <File>
-              <FileName>I2c.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\I2c.cpp</FilePath>
+              <FileName>i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\i2c.c</FilePath>
             </File>
             <File>
-              <FileName>Spi.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\Spi.cpp</FilePath>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\spi.c</FilePath>
             </File>
             <File>
-              <FileName>Usart.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\Usart.cpp</FilePath>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\usart.c</FilePath>
             </File>
             <File>
-              <FileName>Can.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\Can.cpp</FilePath>
+              <FileName>can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\can.c</FilePath>
             </File>
             <File>
               <FileName>wdg.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\lib\system\wdg.c</FilePath>
             </File>
             <File>
               <FileName>rtc.c</FileName>
-              <FileType>8</FileType>
+              <FileType>1</FileType>
               <FilePath>.\lib\system\rtc.c</FilePath>
             </File>
             <File>
-              <FileName>crc.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\lib\system\crc.cpp</FilePath>
+              <FileName>crc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\crc.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -9,7 +9,8 @@ Usage:
 History: 
 	rise0chen   2018.4.26   编写注释
 *************************************************/
-#include "setup.hpp"
+#include "setup.h"
+#include "map.h"
 
 /*************************************************
 Function: setupRCC
@@ -17,14 +18,14 @@ Description: 初始化时钟树
 *************************************************/
 void setupRCC(void){
 	/***  初始化系统时钟  ***/
-	rcc.init(9); //HSE 9倍频
+	rcc_init(9); //HSE 9倍频
 	//SystemInit();
 	
 	/***  初始化外设时钟  ***/
-	rcc.cmd(0, AHB_DMA1, ENABLE);//DMA1
-	rcc.cmd(2, APB2_AFIO, ENABLE);//AF
-	rcc.cmd(2, APB2_GPIOA, ENABLE);//GPIOA
-	rcc.cmd(2, APB2_GPIOB, ENABLE);//GPIOB
+	rcc_cmd(0, AHB_DMA1, ENABLE);//DMA1
+	rcc_cmd(2, APB2_AFIO, ENABLE);//AF
+	rcc_cmd(2, APB2_GPIOA, ENABLE);//GPIOA
+	rcc_cmd(2, APB2_GPIOB, ENABLE);//GPIOB
 }
 
 /*************************************************
@@ -62,10 +63,17 @@ void setupGPIO(void){
 Function: setupCOM
 Description: 初始化通信接口,如USART、I2C、SPI、CAN
 *************************************************/
+UsartStruct* usart1;
+UsartStruct* usart2;
+UsartStruct* usart3;
 void setupCOM(void){
-	usart1.init(9600);
-	usart2.init(9600);
-	usart3.init(115200);
+  usart1=usart_new(1);
+  usart2=usart_new(2);
+  usart3=usart_new(3);
+  
+	usart_init(usart1,9600);
+	usart_init(usart2,9600);
+	usart_init(usart3,115200);
 	//i2c2.config();
 	//spi2.config();
 	//can.init();
@@ -79,12 +87,12 @@ void setup(void){
 	flash_read(FLASH_ADDR_START, &me, sizeof(me));//读取设备信息
 	if(me.status[0]!=0x67){//设备初始化
 		u8 ID_def[8]={0x11,0x01,0x00,0x00,0x00,0x00,0x00,0x01};//设备ID
-		std::memcpy(me.ID, ID_def, 8);
+		memcpy(me.ID, ID_def, 8);
 		me.status[0]=0x67;
 		flash_write(FLASH_ADDR_START, &me, sizeof(me));
 	}
 	task_init(1000);//1000ms(1s)心跳1次
-	task_add(0x01, myTest, 10, 0xFFFF);//10秒1次,执行无限次
+	task_add(0x01, myTest, 10, 0xFFFF,0,0xFFFF);//10秒1次,执行无限次
 
 	//iwdg::config(6,1250);
 }

@@ -10,18 +10,10 @@ History:
 	rise0chen   2018.4.26   编写注释
 *************************************************/
 #include "recvHadle.h"
-#include "DataFormat.hpp"
 
 void recvHadle_init(void){
 	
 }
 void recvHadle_usart1(u8 res){
-	static DataFormat* rx=new DataFormat();
-	if(rx->recv(&res,1)==0){
-		if (rx->getMsg()) {
-			//rx->msg;
-		} else {
-			//crc error
-		}
-	}
+	
 }
