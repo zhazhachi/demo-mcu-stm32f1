@@ -8,7 +8,7 @@ Description: 定义用户函数
 History: 
 	rise0chen   2018.4.26   编写注释
 *************************************************/
-#include "function.h"
+#include "./function.h"
 
 /***  定义IO口(别忘记在function.hpp中引用)  ***/
 

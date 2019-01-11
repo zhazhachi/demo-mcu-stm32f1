@@ -6,11 +6,11 @@
 #include "pwr.h"
 #include "task.h"
 /***  引用用户函数  ***/
-#include "config.h"
-#include "me.h"
-#include "recvHadle.h"
-#include "ui.h"
-#include "FCT.h"
+#include "../config.h"
+#include "./me.h"
+#include "./recvHadle.h"
+#include "./ui.h"
+#include "./FCT.h"
 
 /***    定义IO口    ***/
 

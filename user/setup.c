@@ -9,7 +9,7 @@ Usage:
 History: 
 	rise0chen   2018.4.26   编写注释
 *************************************************/
-#include "setup.h"
+#include "./setup.h"
 #include "map.h"
 
 /*************************************************
@@ -86,7 +86,7 @@ Description: 起始函数(仅执行1次)
 void setup(void){
 	flash_read(FLASH_ADDR_START, &me, sizeof(me));//读取设备信息
 	if(me.status[0]!=0x67){//设备初始化
-		u8 ID_def[8]={0x11,0x01,0x00,0x00,0x00,0x00,0x00,0x01};//设备ID
+		uint8_t ID_def[8]={0x11,0x01,0x00,0x00,0x00,0x00,0x00,0x01};//设备ID
 		memcpy(me.ID, ID_def, 8);
 		me.status[0]=0x67;
 		flash_write(FLASH_ADDR_START, &me, sizeof(me));

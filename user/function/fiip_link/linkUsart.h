@@ -7,7 +7,7 @@ extern "C" {
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "function.h"
+#include "../function.h"
 #include "fiip/fiip.h"
 #include "fiip/link/Link.h"
 

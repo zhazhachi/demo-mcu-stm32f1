@@ -9,6 +9,6 @@ Usage:
 History: 
 	rise0chen   2018.4.26   编写注释
 *************************************************/
-#include "me.h"
+#include "./me.h"
 
 MyInfoStruct me;

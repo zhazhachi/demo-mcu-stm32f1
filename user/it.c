@@ -9,7 +9,7 @@ Usage:
 History: 
 	rise0chen   2018.4.26   编写注释
 *************************************************/
-#include "it.h"
+#include "./it.h"
 
 void NMI_Handler(void){}
 void HardFault_Handler(void){while (1){}}
@@ -26,7 +26,7 @@ Function: USART1_IRQHandler
 Description: 串口接收中断
 *************************************************/
 void USART2_IRQHandler(void){
-	u8 res;
+	uint8_t res;
   
 	if(USART2->SR&(1<<5)){
 		res=USART2->DR;
@@ -34,7 +34,7 @@ void USART2_IRQHandler(void){
 	}
 }
 void USART3_IRQHandler(void){
-	u8 res;
+	uint8_t res;
 
 	if(USART3->SR&(1<<5)){
 		res=USART2->DR;

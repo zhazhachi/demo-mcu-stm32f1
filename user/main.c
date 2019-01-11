@@ -9,7 +9,7 @@ Usage:
 History: 
 	rise0chen   2018.4.26   编写注释
 *************************************************/
-#include "setup.h"
+#include "./setup.h"
 
 int main(void){
 	setupRCC();

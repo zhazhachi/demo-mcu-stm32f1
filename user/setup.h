@@ -1,7 +1,7 @@
 #ifndef __SETUP_H
 #define __SETUP_H
 #include "sys.h"
-#include "function.h"
+#include "./function/function.h"
 
 void setupRCC(void);
 void setupOther(void);

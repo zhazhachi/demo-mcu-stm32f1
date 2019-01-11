@@ -1,11 +1,11 @@
 #ifndef __ME_H
 #define __ME_H
 #include "sys.h"
-#include "function.h"
+#include "./function.h"
 
 typedef struct{
-	u8 ID[8];
-	u8 status[4];
+	uint8_t ID[8];
+	uint8_t status[4];
 }MyInfoStruct;
 extern MyInfoStruct me;
 

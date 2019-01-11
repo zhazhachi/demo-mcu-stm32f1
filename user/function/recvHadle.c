@@ -9,11 +9,11 @@ Usage:
 History: 
 	rise0chen   2018.4.26   编写注释
 *************************************************/
-#include "recvHadle.h"
+#include "./recvHadle.h"
 
 void recvHadle_init(void){
 	
 }
-void recvHadle_usart1(u8 res){
+void recvHadle_usart1(uint8_t res){
 	
 }
