@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\src;.\src\function;.\lib\fiip;.\lib\fiip\Link;.\lib\fiip\DataFormat;.\lib\Common;.\lib\hardware;.\lib\system;.\lib\CMSIS</IncludePath>
+              <IncludePath>.\src;.\src\function;.\lib;.\lib\fiip-base;.\lib\fiip-protocol;.\lib\Common;.\lib\hardware;.\lib\system;.\lib\CMSIS</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -497,37 +497,37 @@
             <File>
               <FileName>fiip.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\fiip\fiip\fiip.c</FilePath>
+              <FilePath>.\lib\fiip-base\fiip.c</FilePath>
             </File>
             <File>
               <FileName>route.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\fiip\fiip\link\route.c</FilePath>
+              <FilePath>.\lib\fiip-base\link\route.c</FilePath>
             </File>
             <File>
               <FileName>bufRecver.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\fiip\fiip\frame\bufRecver.c</FilePath>
+              <FilePath>.\lib\fiip-base\frame\bufRecver.c</FilePath>
             </File>
             <File>
               <FileName>crc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\fiip\fiip\frame\crc.c</FilePath>
+              <FilePath>.\lib\fiip-base\frame\crc.c</FilePath>
             </File>
             <File>
               <FileName>format.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\fiip\fiip\frame\format.c</FilePath>
+              <FilePath>.\lib\fiip-base\frame\format.c</FilePath>
             </File>
             <File>
               <FileName>stdp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\fiip\fiip_protocol\stdp.c</FilePath>
+              <FilePath>.\lib\fiip-protocol\stdp.c</FilePath>
             </File>
             <File>
               <FileName>stdpFormat.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\fiip\fiip_protocol\stdpFormat.c</FilePath>
+              <FilePath>.\lib\fiip-protocol\stdpFormat.c</FilePath>
             </File>
           </Files>
         </Group>

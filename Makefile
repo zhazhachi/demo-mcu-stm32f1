@@ -22,7 +22,7 @@ ASM_OBJECTS   += $(patsubst %.s,$(BUILD_DIR)/%.o,$(ASM_SOURCES))
 OBJECTS   = $(C_OBJECTS) $(ASM_SOURCES)
 
 
-PREFIX = /opt/compilers/gcc-arm-none-eabi/bin/arm-none-eabi-
+PREFIX = arm-none-eabi-
 CC = $(PREFIX)gcc
 AS = $(PREFIX)gcc -x assembler-with-cpp
 CP = $(PREFIX)objcopy

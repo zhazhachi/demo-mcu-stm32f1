@@ -8,8 +8,8 @@ extern "C" {
 #include <stdio.h>
 #include <stdlib.h>
 #include "../function.h"
-#include "fiip/fiip.h"
-#include "fiip/link/link.h"
+#include "fiip-base/fiip.h"
+#include "fiip-base/link/link.h"
 
 #define linkType_usart 0x31
 
