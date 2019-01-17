@@ -26,6 +26,7 @@ void setupRCC(void){
 	rcc_cmd(2, APB2_AFIO, ENABLE);//AF
 	rcc_cmd(2, APB2_GPIOA, ENABLE);//GPIOA
 	rcc_cmd(2, APB2_GPIOB, ENABLE);//GPIOB
+	rcc_cmd(2, APB2_GPIOC, ENABLE);//GPIOC
 }
 
 /*************************************************
@@ -79,6 +80,7 @@ void setupCOM(void){
 	//can.init();
 }
 
+GpioStruct* pc13;
 /*************************************************
 Function: setup
 Description: 起始函数(仅执行1次)
@@ -94,6 +96,8 @@ void setup(void){
 	task_init(1000);//1000ms(1s)心跳1次
 	task_add(0x01, myTest, 10, 0xFFFF,0,0xFFFF);//10秒1次,执行无限次
 
+	pc13=gpio_new(PC,13);
+	gpio_config(pc13,P_PPO,0,P_2MHz);
 	//iwdg::config(6,1250);
 }
 
@@ -104,6 +108,10 @@ Description: 循环函数(无限循环)
 void loop(void){
 	//iwdg::feed();
 	task_run();
+	*pc13->O = 1;
+	delay_ms(500);
+	*pc13->O = 0;
+	delay_ms(500);
 	
 	//pwr_sleep(0);//休眠
 }
