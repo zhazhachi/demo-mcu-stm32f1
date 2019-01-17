@@ -1,4 +1,4 @@
-TARGET = Lib_STM32F1
+TARGET = demo-mcu-stm32f1
 
 ROOT_DIR  := $(shell pwd)
 BUILD_DIR := BUILD
@@ -22,7 +22,7 @@ ASM_OBJECTS   += $(patsubst %.s,$(BUILD_DIR)/%.o,$(ASM_SOURCES))
 OBJECTS   = $(C_OBJECTS) $(ASM_SOURCES)
 
 
-PREFIX = arm-none-eabi-
+PREFIX = /opt/compilers/gcc-arm-none-eabi/bin/arm-none-eabi-
 CC = $(PREFIX)gcc
 AS = $(PREFIX)gcc -x assembler-with-cpp
 CP = $(PREFIX)objcopy
@@ -46,7 +46,7 @@ C_INCLUDES += -I./lib/CMSIS
 # LDFLAGS
 #######################################
 # link script
-LDSCRIPT = ./lib/CMSIS/startup/gcc/stm32_flash.ld
+LDSCRIPT = ./lib/CMSIS/startup/gcc/STM32F103C8Tx_FLASH.ld
 
 # libraries
 LIBS = -lc -lm -lnosys 

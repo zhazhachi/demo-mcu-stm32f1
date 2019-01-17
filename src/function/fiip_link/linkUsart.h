@@ -9,7 +9,7 @@ extern "C" {
 #include <stdlib.h>
 #include "../function.h"
 #include "fiip/fiip.h"
-#include "fiip/link/Link.h"
+#include "fiip/link/link.h"
 
 #define linkType_usart 0x31
 

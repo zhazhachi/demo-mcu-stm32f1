@@ -9,7 +9,7 @@ Usage:
 History: 
 	rise0chen   2018.4.26   编写注释
 *************************************************/
-#include "./fct.h"
+#include "./FCT.h"
 
 void fct_start() {
 	
