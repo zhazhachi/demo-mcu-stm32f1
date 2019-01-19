@@ -13,7 +13,7 @@
       "environment": [],
       "externalConsole": true, //false
       "MIMode": "gdb",
-      "miDebuggerPath": "/opt/compilers/gcc-arm-none-eabi/bin/arm-none-eabi-gdb",
+      "miDebuggerPath": "arm-none-eabi-gdb",
       //"debugServerPath": "JLinkGDBServer",
       //"debugServerArgs": "-device STM32F103C8 -If SWD",
       //"serverLaunchTimeout": 20000,
