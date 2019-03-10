@@ -455,19 +455,14 @@
           <GroupName>function</GroupName>
           <Files>
             <File>
-              <FileName>config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\config.h</FilePath>
+              <FileName>config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\config.c</FilePath>
             </File>
             <File>
               <FileName>function.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\function\function.c</FilePath>
-            </File>
-            <File>
-              <FileName>me.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\function\me.c</FilePath>
             </File>
             <File>
               <FileName>recvHadle.c</FileName>
@@ -480,14 +475,19 @@
               <FilePath>.\src\function\ui.c</FilePath>
             </File>
             <File>
-              <FileName>linkUsart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\function\fiip_link\linkUsart.c</FilePath>
-            </File>
-            <File>
               <FileName>fct.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\function\fct.c</FilePath>
+            </File>
+            <File>
+              <FileName>fiipTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\function\fiipTask.c</FilePath>
+            </File>
+            <File>
+              <FileName>fiipListener.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\function\fiipListener.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -528,6 +528,11 @@
               <FileName>stdpFormat.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\lib\fiip-protocol\stdpFormat.c</FilePath>
+            </File>
+            <File>
+              <FileName>linkUsart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\fiip-link\linkUsart.c</FilePath>
             </File>
           </Files>
         </Group>
