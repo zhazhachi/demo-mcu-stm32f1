@@ -534,6 +534,16 @@
               <FileType>1</FileType>
               <FilePath>.\lib\fiip-link\linkUsart.c</FilePath>
             </File>
+            <File>
+              <FileName>fiipCloud.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\fiip-cloud\fiipCloud.c</FilePath>
+            </File>
+            <File>
+              <FileName>fiipCloudVar.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\fiip-cloud\fiipCloudVar.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -663,6 +673,41 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>riselib</GroupName>
+          <Files>
+            <File>
+              <FileName>flagHandle.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\riselib\flagHandle.c</FilePath>
+            </File>
+            <File>
+              <FileName>hexChar.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\riselib\hexChar.c</FilePath>
+            </File>
+            <File>
+              <FileName>linkedList.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\riselib\linkedList.c</FilePath>
+            </File>
+            <File>
+              <FileName>memory.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\riselib\memory.c</FilePath>
+            </File>
+            <File>
+              <FileName>mempool.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\riselib\mempool.c</FilePath>
+            </File>
+            <File>
+              <FileName>varArray.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\riselib\varArray.c</FilePath>
             </File>
           </Files>
         </Group>

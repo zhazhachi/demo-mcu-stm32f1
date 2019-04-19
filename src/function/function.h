@@ -13,6 +13,7 @@
 #include "./ui.h"
 #include "fiip-base/fiip.h"
 #include "fiip-protocol/stdp.h"
+#include "fiip-cloud/fiipCloud.h"
 
 /***    定义IO口    ***/
 

@@ -23,7 +23,7 @@ void initFiip() {
   uint8_t dev[] = "1";
 
   fiip_init();
-  fiip_setId(myId, myKey);
+  fiip_setId(myId);
   startUsart(dev, 9600);
 
   fiip_connectCloud();
