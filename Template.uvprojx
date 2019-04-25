@@ -333,7 +333,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>STM32F10X_MD</Define>
+              <Define>STM32F10X_MD,DEBUG</Define>
               <Undefine></Undefine>
               <IncludePath>.\src;.\src\function;.\lib;.\lib\fiip-base;.\lib\fiip-protocol;.\lib\Common;.\lib\hardware;.\lib\system;.\lib\CMSIS</IncludePath>
             </VariousControls>
@@ -483,11 +483,6 @@
               <FileName>fiipTask.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\function\fiipTask.c</FilePath>
-            </File>
-            <File>
-              <FileName>fiipListener.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\function\fiipListener.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1243,6 +1238,11 @@
               <FileName>crc.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\lib\system\crc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stdlibc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\stdlibc.c</FilePath>
             </File>
           </Files>
         </Group>

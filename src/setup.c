@@ -57,6 +57,7 @@ void setupGPIO(void) {
   RCC->APB2ENR &= ~0x1fc;
 
   /***  用户GPIO(请先在function.cpp中定义)  ***/
+  initGpio();
 }
 
 /*************************************************
@@ -84,17 +85,18 @@ Function: setup
 Description: 起始函数(仅执行1次)
 *************************************************/
 void setup(void) {
+  mempool_init(0x1000);
   config_init();
+  initFiip();
   if (config.myStatus[1] != 0x89) {  //设备初始化
-
-    config_setMyStatus(1, 0x89);
+    fiipCloud_getId(config.myTypeId, config.myTypeKey);
   }
+  fiipCloud_login();
   task_init(1000);                                // 1000ms(1s)心跳1次
   task_add(0x01, switchLed, 10, 0xFFFF, 0, 0xFFFF);  // 10秒1次,执行无限次
+  task_add(0x02, fiipCloud_heart, 90, 0xFFFF, 0, 0xFFFF);  // 90秒1次,执行无限次
 
   // iwdg::config(6,1250);
-
-  initFiip();
 }
 
 /*************************************************

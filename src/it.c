@@ -25,11 +25,11 @@ void PendSV_Handler(void){}
 Function: USART1_IRQHandler
 Description: 串口接收中断
 *************************************************/
-void USART2_IRQHandler(void){
+void USART1_IRQHandler(void){
 	uint8_t res;
   
-	if(USART2->SR&(1<<5)){
-		res=USART2->DR;
+	if(USART1->SR&(1<<5)){
+		res=USART1->DR;
 		//to do something
 	}
 }

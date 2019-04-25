@@ -15,14 +15,12 @@ GpioStruct* led_red;
 GpioStruct* led_green;
 
 /*  定义全局变量(别忘记在function.hpp中引用)  */
-static uint8_t cmd_body[64];
-static StdpStruct* txd;
 
 /*  定义用户函数(别忘记在function.hpp中引用)  */
 void initGpio() {
-  led_red = gpio_new(PC, 0);
+  led_red = gpio_new(PB, 8);
   gpio_config(led_red, P_PPO, 0, P_2MHz);
-  led_green = gpio_new(PC, 1);
+  led_green = gpio_new(PB, 9);
   gpio_config(led_green, P_PPO, 0, P_2MHz);
 }
 void switchLed() {
@@ -35,7 +33,7 @@ void setVar(uint8_t key, uint8_t val) {
       *led_red->O = val;
       break;
     case 0x02:
-      *led_red->O = val;
+      *led_green->O = val;
       break;
     default:
       break;
