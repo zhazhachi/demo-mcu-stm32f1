@@ -16,5 +16,5 @@ History:
 
 /*  定义用户函数(别忘记在function.hpp中引用)  */
 void myTest(){
-	
+	*gpio_default.O = !(*gpio_default.I);
 }

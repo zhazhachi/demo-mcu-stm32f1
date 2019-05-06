@@ -55,7 +55,7 @@ void setupGPIO(void){
 	RCC->APB2ENR &= ~0x1fc;
 	
 	/***  用户GPIO(请先在function.cpp中定义)  ***/
-	
+	gpio_default.config(P_PPO);
 }
 
 /*************************************************
@@ -78,8 +78,8 @@ Description: 起始函数(仅执行1次)
 void setup(void){
 	flash.read(FLASH_ADDR_START, &me, sizeof(me));//读取设备信息
 	if(me.status[0]!=0x67){//设备初始化
-		u8 ID_def[8]={0x11,0x01,0x00,0x00,0x00,0x00,0x00,0x01};//设备ID
-		std::memcpy(me.ID, ID_def, 8);
+		uint8_t ID_def[8]={0x11,0x01,0x00,0x00,0x00,0x00,0x00,0x01};//设备ID
+		mem_cpy(me.ID, ID_def, 8);
 		me.status[0]=0x67;
 		flash.write(FLASH_ADDR_START, &me, sizeof(me));
 	}
