@@ -335,7 +335,7 @@
               <MiscControls>--cpp11</MiscControls>
               <Define>STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\user;.\user\function;.\lib;.\lib\system\inc;.\lib\Common\inc;.\lib\hardware\inc;.\lib\CMSIS</IncludePath>
+              <IncludePath>.\src;.\src\function;.\lib;.\lib\system\inc;.\lib\Common\inc;.\lib\hardware\inc;.\lib\CMSIS</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -382,17 +382,17 @@
             <File>
               <FileName>setup.cpp</FileName>
               <FileType>1</FileType>
-              <FilePath>.\user\setup.cpp</FilePath>
+              <FilePath>.\src\setup.cpp</FilePath>
             </File>
             <File>
               <FileName>it.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\user\it.c</FilePath>
+              <FilePath>.\src\it.c</FilePath>
             </File>
             <File>
               <FileName>main.cpp</FileName>
               <FileType>1</FileType>
-              <FilePath>.\user\main.cpp</FilePath>
+              <FilePath>.\src\main.cpp</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -457,32 +457,32 @@
             <File>
               <FileName>function.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\user\function\function.cpp</FilePath>
+              <FilePath>.\src\function\function.cpp</FilePath>
             </File>
             <File>
               <FileName>config.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\user\config.h</FilePath>
+              <FilePath>.\src\config.h</FilePath>
             </File>
             <File>
               <FileName>me.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\user\function\me.cpp</FilePath>
+              <FilePath>.\src\function\me.cpp</FilePath>
             </File>
             <File>
               <FileName>ans.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\user\function\ans.cpp</FilePath>
+              <FilePath>.\src\function\ans.cpp</FilePath>
             </File>
             <File>
               <FileName>Ui.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\user\function\Ui.cpp</FilePath>
+              <FilePath>.\src\function\Ui.cpp</FilePath>
             </File>
             <File>
               <FileName>FCT.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\user\function\FCT.cpp</FilePath>
+              <FilePath>.\src\function\FCT.cpp</FilePath>
             </File>
           </Files>
         </Group>
