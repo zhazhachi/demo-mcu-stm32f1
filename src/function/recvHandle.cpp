@@ -9,8 +9,8 @@ Usage:
 History: 
 	rise0chen   2018.4.26   编写注释
 *************************************************/
-#include "ans.hpp"
+#include "recvHandle.hpp"
 
-void ans::init(void){
+void recvHandle::init(void){
 	
 }

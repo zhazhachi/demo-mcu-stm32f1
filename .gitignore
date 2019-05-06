@@ -1,5 +1,7 @@
 .vscode/ipch
 
+BUILD/
+
 *.bak
 *.ddk
 *.edk

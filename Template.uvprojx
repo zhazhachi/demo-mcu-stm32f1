@@ -47,7 +47,7 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\Objects\</OutputDirectory>
+          <OutputDirectory>.\BUILD\</OutputDirectory>
           <OutputName>Template</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
@@ -186,7 +186,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -333,9 +333,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls>--cpp11</MiscControls>
-              <Define>STM32F10X_MD</Define>
+              <Define>STM32F10X_MD,DEBUG</Define>
               <Undefine></Undefine>
-              <IncludePath>.\src;.\src\function;.\lib;.\lib\system\inc;.\lib\Common\inc;.\lib\hardware\inc;.\lib\CMSIS</IncludePath>
+              <IncludePath>.\src;.\lib;.\lib\system\inc;.\lib\Common\inc;.\lib\hardware\inc;.\lib\CMSIS</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -455,24 +455,24 @@
           <GroupName>function</GroupName>
           <Files>
             <File>
+              <FileName>config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\config.c</FilePath>
+            </File>
+            <File>
               <FileName>function.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\function\function.cpp</FilePath>
             </File>
             <File>
-              <FileName>config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\config.h</FilePath>
+              <FileName>fiipTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\function\fiipTask.c</FilePath>
             </File>
             <File>
-              <FileName>me.cpp</FileName>
+              <FileName>recvHandle.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\function\me.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>ans.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\function\ans.cpp</FilePath>
+              <FilePath>.\src\function\recvHandle.cpp</FilePath>
             </File>
             <File>
               <FileName>Ui.cpp</FileName>

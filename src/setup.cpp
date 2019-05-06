@@ -9,7 +9,7 @@ Usage:
 History: 
 	rise0chen   2018.4.26   编写注释
 *************************************************/
-#include "setup.hpp"
+#include "./setup.hpp"
 
 /*************************************************
 Function: setupRCC
@@ -25,6 +25,7 @@ void setupRCC(void){
 	rcc.cmd(2, APB2_AFIO, ENABLE);//AF
 	rcc.cmd(2, APB2_GPIOA, ENABLE);//GPIOA
 	rcc.cmd(2, APB2_GPIOB, ENABLE);//GPIOB
+  rcc.cmd(2, APB2_GPIOC, ENABLE);  // GPIOC
 }
 
 /*************************************************
@@ -76,15 +77,16 @@ Function: setup
 Description: 起始函数(仅执行1次)
 *************************************************/
 void setup(void){
-	flash.read(FLASH_ADDR_START, &me, sizeof(me));//读取设备信息
-	if(me.status[0]!=0x67){//设备初始化
-		uint8_t ID_def[8]={0x11,0x01,0x00,0x00,0x00,0x00,0x00,0x01};//设备ID
-		mem_cpy(me.ID, ID_def, 8);
-		me.status[0]=0x67;
-		flash.write(FLASH_ADDR_START, &me, sizeof(me));
-	}
-	task.init(1000);//1000ms(1s)心跳1次
-	task.add(0x01, myTest, 10, 0xFFFF);//10秒1次,执行无限次
+  mempool_init(0x1000);
+  config_init();
+  initFiip();
+  if (config.myStatus[1] != 0x89) {  //设备初始化
+    fiipCloud_getId(config.myTypeId, config.myTypeKey);
+  }
+  fiipCloud_login();
+  task.init(1000);                                // 1000ms(1s)心跳1次
+  task.add(0x01, switchLed, 10, 0xFFFF, 0, 0xFFFF);  // 10秒1次,执行无限次
+  task.add(0x02, fiipCloud_heart, 90, 0xFFFF, 0, 0xFFFF);  // 90秒1次,执行无限次
 
 	//iwdg::config(6,1250);
 }
