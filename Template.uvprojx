@@ -490,6 +490,11 @@
           <GroupName>fiip</GroupName>
           <Files>
             <File>
+              <FileName>linkUsart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\fiip-link\linkUsart.c</FilePath>
+            </File>
+            <File>
               <FileName>fiip.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\lib\fiip-base\fiip.c</FilePath>
@@ -523,11 +528,6 @@
               <FileName>stdpFormat.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\lib\fiip-protocol\stdpFormat.c</FilePath>
-            </File>
-            <File>
-              <FileName>linkUsart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\lib\fiip-link\linkUsart.c</FilePath>
             </File>
             <File>
               <FileName>fiipCloud.c</FileName>

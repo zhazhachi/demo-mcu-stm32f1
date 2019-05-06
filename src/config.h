@@ -10,6 +10,9 @@ History:
 *************************************************/
 #ifndef __CONFIG_H
 #define __CONFIG_H
+#ifdef __cplusplus
+extern "C" {
+#endif
 #include <stdint.h>
 
 #define I2C_ADDR_MPU6050 0x68
@@ -34,4 +37,7 @@ void config_setMyStatus(uint8_t index, uint8_t status);
 void config_setMyId(uint8_t* id);
 void config_setMyKey(uint8_t* key);
 
+#ifdef __cplusplus
+}
+#endif
 #endif  //__CONFIG_H
