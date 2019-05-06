@@ -28,7 +28,7 @@ Input:
 	len   串口1接收到的字符串长度
 Return: void
 *************************************************/
-void USART1_Do(char* msg, u16 len){
+void USART1_Do(char* msg, uint16_t len){
 	usart1.send(msg, len);
 }
 
@@ -40,7 +40,7 @@ Input:
 	len   串口2接收到的字符串长度
 Return: void
 *************************************************/
-void USART2_Do(char* msg, u16 len){
+void USART2_Do(char* msg, uint16_t len){
 	usart3.send(msg, len);
 }
 
@@ -52,7 +52,7 @@ Input:
 	len   串口3接收到的字符串长度
 Return: void
 *************************************************/
-void USART3_Do(char* msg, u16 len){
+void USART3_Do(char* msg, uint16_t len){
 	usart2.send(msg, len);
 }
 
@@ -71,7 +71,7 @@ _C void CAN1_RX1_IRQHandler(){
 	usart3.printf("RTR:%x\r\n", can.rx.RTR);
 	usart3.printf("DLC:%x\r\n", can.rx.DLC);
 	usart3.printf("FMI:%x\r\n", can.rx.FMI);
-	for(u8 i=0; i<can.rx.DLC; i++)
+	for(uint8_t i=0; i<can.rx.DLC; i++)
 		usart3.printf("FMI:%x\r\n", can.rx.Data[i]);
 	
 }

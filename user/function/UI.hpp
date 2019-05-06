@@ -5,12 +5,12 @@
 
 class Ui{
 	public:
-		u16 ID;//64主界面 99次界面 9交互框
+		uint16_t ID;//64主界面 99次界面 9交互框
 		
 		void show(void);
 	
 	private:
-		u16 oldID;
+		uint16_t oldID;
 };
 extern Ui ui;
 

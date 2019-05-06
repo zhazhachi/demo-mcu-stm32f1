@@ -4,8 +4,8 @@
 #include "function.hpp"
 
 typedef struct{
-	u8 ID[8];
-	u8 status[4];
+	uint8_t ID[8];
+	uint8_t status[4];
 }Me_TypeDef;
 extern Me_TypeDef me;
 
