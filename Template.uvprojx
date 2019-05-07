@@ -440,11 +440,6 @@
               <FilePath>.\src\bsp.cpp</FilePath>
             </File>
             <File>
-              <FileName>it.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\it.c</FilePath>
-            </File>
-            <File>
               <FileName>README.md</FileName>
               <FileType>5</FileType>
               <FilePath>.\README.md</FilePath>
@@ -1020,6 +1015,11 @@
               </FileOption>
             </File>
             <File>
+              <FileName>it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\it.c</FilePath>
+            </File>
+            <File>
               <FileName>Rcc.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\lib\system\Rcc.cpp</FilePath>
@@ -1258,6 +1258,11 @@
               <FileName>crc.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\lib\system\crc.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>stdRewrite.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\system\stdRewrite.c</FilePath>
             </File>
           </Files>
         </Group>

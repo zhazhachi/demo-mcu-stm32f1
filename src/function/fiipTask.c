@@ -67,7 +67,7 @@ void funListener0x7822(Stdp_FieldStruct* msg) {
 }
 
 void fiip_connectCloud() {
-  uint8_t hostinfo[] = "1";
+  uint8_t hostinfo[] = "2";
 
   LinkCfgStruct* centerServer = (LinkCfgStruct*)malloc(sizeof(LinkCfgStruct));
   centerServer->type = linkType_usart;

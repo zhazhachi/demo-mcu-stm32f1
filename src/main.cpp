@@ -21,6 +21,7 @@ static void setup(void){
   initFiip();
   if (config.myStatus[1] != 0x89) {  //设备初始化
     fiipCloud_getId(config.myTypeId, config.myTypeKey);
+    pwr::sleep(0);//休眠
   }
   fiipCloud_login();
   task.init(1000);                                // 1000ms(1s)心跳1次
